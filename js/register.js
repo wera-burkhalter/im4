@@ -1,7 +1,7 @@
 console.log("hello from register js!");
 
 document
-.getElementById("#registerForm")
+.getElementById("registerForm")
 .addEventListener("submit", async (e) => {
     e.preventDefault;
 
