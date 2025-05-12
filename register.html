@@ -8,36 +8,36 @@
     <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
-    <h1>Registrierung</h1>
+    <div class="container">
+
+        <div class="logo">
+            <img src="assets/Logo_Invyte.png" alt="Invyte Logo">
+        </div>
 
     <form id="registerForm" action="" enctype="multipart/form-data">
 
         <label for="profilePicture">Profilbild</label>
         <input id="profilePicture" name="profilePicture" type="file" accept="image/*" />
-        <br />
-        <br />
     
         <label for="phone">Handy-Nr.</label>
         <input id="phone" type="tel"/>
-        <br />
-        <br />
 
         <label for="firstName">Vorname</label>
         <input id="firstName" type="text"/>
-        <br />
-        <br />
 
         <label for="surname">Nachname</label>
         <input id="surname" type="text"/>
-        <br />
-        <br />
 
-        <label for="password">Password:</label>
-        <input id="password" type="password"/>
-        <br />
-        <br />
+        <label for="password">Passwort <small>(mind. 8 Zeichen)</small></label>
+        <input id="password" type="password" required minlength="8"/>
 
-        <button type="submit">Registrieren!</button>
+        <div class="button-row">
+            <button type="button" class="back-button">
+                <img src="assets/back_button.png" alt="Zurück">
+            </button>
+        <button type="submit" class="submit-button">registrieren</button>
+        </div>
+
     </form>
 
     <script src="js/register.js"></script>
