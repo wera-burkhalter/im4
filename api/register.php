@@ -8,11 +8,11 @@ $username = $_POST['username'] ?? '';
 $email = $_POST['email'] ?? '';
 $password = $_POST['password'] ?? '';
 
-$insert = $pdo->prepare("INSERT INTO benutzer (username, email, password) VALUES (:username, :email, :password)");
+$insert = $pdo->prepare("INSERT INTO benutzer (username, email, password) VALUES (:username, :email, :pass)");
 $insert->execute([
     ':username' => $username,
     ':email' => $email,
-    ':password' => $password
+    ':pass' => $password
 ]);
 
 echo "Username: {$username}\n";
