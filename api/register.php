@@ -14,14 +14,19 @@ $password = $_POST['password'] ?? '';
 
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-$stmt = $pdo->prepare("SELECT * FROM benutzer WHERE email = :email");
+$stmt = $pdo->prepare("SELECT * FROM benutzer WHERE email = :email OR username = :username");
 $stmt->execute([
-    ':email' => $email
+    ':email' => $email,
+    ':username' => $username
 ]);
 $user = $stmt->fetch();
 
 if ($user) {
-    echo "User already exists!";
+    if ($user['email'] === $email) {
+        echo "E-Mail-Adresse ist bereits registriert!";
+    } elseif ($user['username'] === $username) {
+        echo "Benutzername ist bereits vergeben!";
+    }
     exit;
 } else {
     $insert = $pdo->prepare("INSERT INTO benutzer (username, email, password) VALUES (:username, :email, :pass)");
