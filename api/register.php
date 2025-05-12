@@ -1,5 +1,4 @@
 <?php
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -61,12 +60,12 @@ $insert->execute([
     ':phone' => $phone,
     ':firstName' => $firstName,
     ':surname' => $surname,
-    ':pass' => $hashedPassword
+    ':pass' => $hashedPassword,
     ':bild' => $profilePicturePath
 ]);
 
 echo "Benutzer erfolgreich registriert!\n";
 echo "Profilbild: {$profilePicturePath}\n";
 echo "Handy-Nr.: {$phone}\n";
-echo "Name: {$firstName} {$surname}\n"
+echo "Name: {$firstName} {$surname}\n";
 ?>
