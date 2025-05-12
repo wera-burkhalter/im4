@@ -1,10 +1,10 @@
 <?php
 
-header ('Content-Type: text/plain; charset=UFT-8');
+header('Content-Type: text/plain; charset=UTF-8');
 
-$username = $_Post ['username'] ??'';
-$email = $_Post ['email'] ??'';
-$password = $_Post ['password'] ??'';
+$username = $_POST['username'] ?? '';
+$email = $_POST['email'] ?? '';
+$password = $_POST['password'] ?? '';
 
 echo "Username: {$username}\n";
 echo "E-Mail: {$email}\n";

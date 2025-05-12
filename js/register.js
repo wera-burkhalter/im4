@@ -25,7 +25,7 @@ document
             body: formData,
         });
         const data = await res.text();
-        console.log("Antwort vom Server:\n" + reply);
+        console.log("Antwort vom Server:\n" + data);
     } catch (error) {
         console.error("Fehler beim Senden der Anfrage:", error);
     }
