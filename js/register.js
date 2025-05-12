@@ -14,6 +14,15 @@ document
     let password = document.querySelector ("#password").value;
     console.log(password);
 
+    if(!username || !email || !password) {
+        alert("Bitte fülle alle Felder aus.");
+        return;
+    }
+    if (password.length < 8) {
+        alert("Das Passwort muss mindestens 8 Zeichen lang sein.");
+        return;
+    }
+
     const formData = new FormData();
     formData.append("email", email);
     formData.append("username", username);
@@ -26,6 +35,7 @@ document
         });
         const data = await res.text();
         console.log("Antwort vom Server:\n" + data);
+        alter (reply)
     } catch (error) {
         console.error("Fehler beim Senden der Anfrage:", error);
     }
