@@ -1,4 +1,10 @@
 console.log("hello from register js!");
 
-let inputUsername = document.querySelector("#username");
-console.log(inputUsername);
+document
+.getElementById("#registerForm")
+.addEventListener("submit", async (e) => {
+    e.preventDefault;
+
+    let username = document.querySelector("#username").value;
+    console.log(username);
+});
