@@ -20,7 +20,7 @@ document
     formData.append("password", password);
 
     try {
-        const res = await fetch("/api/register.php", {
+        const res = await fetch("api/register.php", {
             method: "POST",
             body: formData,
         });
