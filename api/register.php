@@ -12,15 +12,18 @@ $username = $_POST['username'] ?? '';
 $email = $_POST['email'] ?? '';
 $password = $_POST['password'] ?? '';
 
+
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
 $insert = $pdo->prepare("INSERT INTO benutzer (username, email, password) VALUES (:username, :email, :pass)");
 $insert->execute([
     ':username' => $username,
     ':email' => $email,
-    ':pass' => $password
+    ':pass' => $hashedPassword
 ]);
 
 echo "Username: {$username}\n";
 echo "E-Mail: {$email}\n";
-echo "Password: {$password}\n";
+echo "Password: {$hashedPassword}\n";
 
 ?>
