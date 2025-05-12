@@ -22,11 +22,7 @@ $stmt->execute([
 $user = $stmt->fetch();
 
 if ($user) {
-    if ($user['email'] === $email) {
-        echo "E-Mail-Adresse ist bereits registriert!";
-    } elseif ($user['username'] === $username) {
-        echo "Benutzername ist bereits vergeben!";
-    }
+    echo "User already exists";
     exit;
 } else {
     $insert = $pdo->prepare("INSERT INTO benutzer (username, email, password) VALUES (:username, :email, :pass)");
