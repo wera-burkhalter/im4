@@ -27,6 +27,9 @@ document
     formData.append("email", email);
     formData.append("username", username);
     formData.append("password", password);
+    let fileInput = document.querySelector("#profilePicture");
+    let file = fileInput.files[0];
+    formData.append("profilePicture", file);
 
     try {
         const res = await fetch("api/register.php", {

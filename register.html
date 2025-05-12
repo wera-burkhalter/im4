@@ -8,17 +8,27 @@
     <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
-    <h1>Jetzt Registrieren für unsere super App!</h1>
+    <h1>Registrierung</h1>
 
-    <form id="registerForm" action="">
+    <form id="registerForm" action="" enctype="multipart/form-data">
+
+        <label for="profilePicture">Profilbild</label>
+        <input id="profilePicture" name="profilePicture" type="file" accept="image/*" />
+        <br />
+        <br />
     
-        <label for="email">E-Mail</label>
-        <input id="email" type="email" />
+        <label for="phone">Handy-Nr.</label>
+        <input id="phone" type="tel"/>
         <br />
         <br />
 
-        <label for="username">Username</label>
-        <input id="username" type="text" />
+        <label for="firstName">Vorname</label>
+        <input id="firstName" type="text"/>
+        <br />
+        <br />
+
+        <label for="surname">Nachname</label>
+        <input id="surname" type="text"/>
         <br />
         <br />
 

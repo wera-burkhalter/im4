@@ -38,6 +38,25 @@ if ($user) {
     $insert = $pdo->prepare("INSERT INTO benutzer (username, email, password) VALUES (:username, :email, :pass)");
 }
 
+$profilePicturePath = null;
+
+if (isset($_FILES['profilePicture']) && $_FILES['profilePicture']['error'] === UPLOAD_ERR_OK) {
+    $tmpName = $_FILES['profilePicture']['tmp_name'];
+    $originalName = basename($_FILES['profilePicture']['name']);
+    $targetDir = __DIR__ . '/../uploads/';
+    $newFileName = uniqid() . '_' . $originalName;
+    $profilePicturePath = 'uploads/' . $newFileName;
+
+    if (!is_dir($targetDir)) {
+        mkdir($targetDir, 0755, true);
+    }
+
+    move_uploaded_file($tmpName, $targetDir . $newFileName);
+} else {
+    echo "Fehler beim Hochladen des Profilbildes!";
+    exit;
+}
+
 
 echo "User:", $user['email'];
 
@@ -46,6 +65,7 @@ $insert->execute([
     ':email' => $email,
     ':username' => $username,
     ':pass' => $hashedPassword
+    ':bild' => $profilePicturePath
 ]);
 
 echo "E-Mail: {$email}\n";
