@@ -5,43 +5,52 @@ document
 .addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    let email = document.querySelector("#email").value;
-    console.log(email);
-
-    let username = document.querySelector("#username").value;
-    console.log(username);
-
-    let password = document.querySelector ("#password").value;
+    //Felder abrufen
+    const phone = document.querySelector("#phone").value;
+    console.log(phone);
+    const firstName = document.querySelector("#firstName").value;
+    console.log(firstName);
+    const surname = document.querySelector("#surname").value;
+    console.log(surname);
+    const password = document.querySelector("#password").value;
     console.log(password);
+    const fileInput = document.querySelector("#profilePicture");
+    console.log(fileInput);
+    const file = fileInput.files[0];
+    console.log(file);
 
-    if(!username || !email || !password) {
+    //Validierung
+    if (!phone || !firstName || !surname || !password || !file) {
         alert("Bitte fülle alle Felder aus.");
         return;
     }
+
     if (password.length < 8) {
         alert("Das Passwort muss mindestens 8 Zeichen lang sein.");
         return;
     }
 
+    //Formulardaten vorbereiten
     const formData = new FormData();
-    formData.append("email", email);
-    formData.append("username", username);
+    formData.append("phone", phone);
+    formData.append("firstName", firstName);
+    formData.append("surname", surname);
     formData.append("password", password);
-    let fileInput = document.querySelector("#profilePicture");
-    let file = fileInput.files[0];
     formData.append("profilePicture", file);
 
+    // Senden
     try {
         const res = await fetch("api/register.php", {
             method: "POST",
             body: formData,
         });
-        const data = await res.text();
+
+        const data = await res.text(); // falls du auf JSON umstellst: `await res.json()`
         console.log("Antwort vom Server:\n" + data);
-        alter (reply)
+        alert(data); // einfache Ausgabe im Browser
     } catch (error) {
         console.error("Fehler beim Senden der Anfrage:", error);
+        alert("Ein Fehler ist aufgetreten.");
     }
-
 });
 

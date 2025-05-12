@@ -8,11 +8,12 @@ require_once(__DIR__ . '/../config.php');
 
 header('Content-Type: text/plain; charset=UTF-8');
 
-$email = $_POST['email'] ?? '';
-$username = $_POST['username'] ?? '';
+$phone = $_POST['phone'] ?? '';
+$firstName = $_POST['firstName'] ?? '';
+$surname = $_POST['surname'] ?? '';
 $password = $_POST['password'] ?? '';
 
-if (empty($email) || empty($username) || empty($password)) {
+if (empty($phone) || empty($firstName) || empty($surname) || empty($password)) {
     echo "Bitte fülle alle Felder aus.";
     exit;
 }
@@ -24,19 +25,16 @@ if (strlen($password) < 8) {
 
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-$stmt = $pdo->prepare("SELECT * FROM benutzer WHERE email = :email OR username = :username");
+$stmt = $pdo->prepare("SELECT * FROM benutzer WHERE phone = :phone");
 $stmt->execute([
-    ':email' => $email,
-    ':username' => $username
+    ':phone' => $phone
 ]);
 $user = $stmt->fetch();
 
 if ($user) {
-    echo "Username oder E-Mail bereits vergeben.";
+    echo "Ein Benutzer mit dieser Telefonnummer existiert bereits.";
     exit;
-} else {
-    $insert = $pdo->prepare("INSERT INTO benutzer (username, email, password) VALUES (:username, :email, :pass)");
-}
+} 
 
 $profilePicturePath = null;
 
@@ -58,18 +56,17 @@ if (isset($_FILES['profilePicture']) && $_FILES['profilePicture']['error'] === U
 }
 
 
-echo "User:", $user['email'];
-
-$insert = $pdo->prepare("INSERT INTO benutzer (username, email, password) VALUES (:username, :email, :pass)");
+$insert = $pdo->prepare("INSERT INTO benutzer (phone, firstName, surname, password, profilbild) VALUES (:phone, :firstName, :surname, :pass, :bild)");
 $insert->execute([
-    ':email' => $email,
-    ':username' => $username,
+    ':phone' => $phone,
+    ':firstName' => $firstName,
+    ':surname' => $surname,
     ':pass' => $hashedPassword
     ':bild' => $profilePicturePath
 ]);
 
-echo "E-Mail: {$email}\n";
-echo "Username: {$username}\n";
-echo "Password: {$hashedPassword}\n";
-
+echo "Benutzer erfolgreich registriert!\n";
+echo "Profilbild: {$profilePicturePath}\n";
+echo "Handy-Nr.: {$phone}\n";
+echo "Name: {$firstName} {$surname}\n"
 ?>
