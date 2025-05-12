@@ -12,8 +12,19 @@ $username = $_POST['username'] ?? '';
 $email = $_POST['email'] ?? '';
 $password = $_POST['password'] ?? '';
 
-
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+$stmt = $pdo->prepare("SELECT * FROM benutzer WHERE email = :email");
+$stmt->execute([
+    ':email' => $email
+]);
+$user = $stmt->fetch;
+
+if ($user) {
+    echo "User already exists!";
+    exit;
+}
+echo "User:", $user['email'];
 
 $insert = $pdo->prepare("INSERT INTO benutzer (username, email, password) VALUES (:username, :email, :pass)");
 $insert->execute([
