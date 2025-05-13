@@ -25,12 +25,12 @@ console.log("password ist:", password);
             body: formData,
         });
 
-        const data = await res.text(); // falls du auf JSON umstellst: `await res.json()`
+        const reply = await res.text(); // falls du auf JSON umstellst: `await res.json()`
         
-        console.log("Antwort vom Server:\n" + data);
-        alert(data); // einfache Ausgabe im Browser
+        console.log("Antwort vom Server:\n" + reply);
+        alert(reply); // einfache Ausgabe im Browser
 
-        if (data==="Login erfolgreich!") {
+        if (reply==="Login erfolgreich!") {
 
             window.location.href = "homescreen.html"; // Weiterleitung zum Homescreen
         }
