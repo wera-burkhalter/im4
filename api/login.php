@@ -9,5 +9,4 @@ $loginInfo = $_POST['phone'] ?? '';
 $password = $_POST['password'] ?? '';
 
 // Validierung der Eingabefelder
-echo "Habe folgende Daten erhalten, phone:
-$phone, Passwort: $password\n";
+echo "Habe folgende Daten erhalten, phone: $phone\n, Passwort: $password\n";
