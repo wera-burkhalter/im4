@@ -20,11 +20,22 @@ h1 {
   margin-bottom: 2rem;
 }
 
+.icon-wrapper {
+  display: inline-block;
+  border-radius: 20px;         /* Abrundung */
+  overflow: hidden;            /* Bild sauber zuschneiden */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15); /* Schatten */
+  transition: transform 0.2s ease;
+}
+
+.icon-wrapper:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+}
+
 .homescreenIcons {
   width: 120px;
-  margin: 1rem;
-  transition: transform 0.2s ease;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15); /* ✅ Hier ist der Schatten */
+  display: block;
 }
 
 .homescreenIcons:hover {
