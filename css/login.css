@@ -1,29 +1,84 @@
-  .button-row {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-    align-items: center;
-  }
-  
-  .back-button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-  
-  .back-button img {
-    width: 40px;
-  }
-  
-  .submit-button {
-    background-color: #d38b26;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  }
+
+/* Zentriertes Layout */
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  color: #002147;
+  margin-top: 0.5rem;
+}
+
+/* Formularfelder */
+form {
+  width: 100%;
+}
+
+form label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  color: #000;
+}
+
+form input[type="tel"],
+form input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 3px solid #002147;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* Buttons */
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  align-items: center;
+}
+
+.back-button img {
+  width: 48px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.submit-button {
+  background-color: #d38b26;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
