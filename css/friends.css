@@ -42,15 +42,12 @@ h1 {
   border: 3px solid #002147;
   border-radius: 16px;
   padding: 1rem;
-
-  /* Scrollbar aktivieren */
-  max-height: 400px; /* oder ca. 4x Freundhöhe */
+  height: 360px; /* Feste Höhe z. B. für 4 Einträge à ~80px */
   overflow-y: auto;
-
-  /* Optional: weiche Scrollbar nur bei Bedarf */
-  scrollbar-width: thin;
-  scrollbar-color: #ccc transparent;
-
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 /* Einzelner Freund */
