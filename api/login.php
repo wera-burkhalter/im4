@@ -12,9 +12,6 @@ header('Content-Type: text/plain; charset=UTF-8');
 $phone = $_POST['phone'] ?? '';
 $password = $_POST['password'] ?? '';
 
-// Validierung der Eingabefelder
-echo "Habe folgende Daten erhalten, phone: $phone\n, Passwort: $password\n";
-
 // Prüfen, ob Telefonnummer bereits existiert
 $stmt = $pdo->prepare("SELECT * FROM benutzer WHERE phone = :phone");
 $stmt->execute([':phone' => $phone]);
