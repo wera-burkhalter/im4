@@ -52,12 +52,11 @@ function ladeFreunde() {
 
       // Entfernen-Buttons
       document.querySelectorAll(".entfernen-button").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const id = btn.getAttribute("data-id");
-          if (confirm("Willst du diesen Freund wirklich entfernen?")) {
-            entferneFreund(id);
-          }
-        });
+       btn.addEventListener("click", () => {
+  const id = btn.getAttribute("data-id");
+  const name = btn.closest(".freund-box").querySelector("span").innerText;
+  openRemovePopup(id, name);
+});
       });
     });
 }
@@ -66,7 +65,7 @@ function ladeFreunde() {
 // 3. FREUND ENTFERNEN
 // =============================
 function entferneFreund(id) {
-  fetch("api/freunde_entfernen.php", {
+  fetch("api/removeFriends.php", {
     method: "POST",
     body: new URLSearchParams({ id }),
   })
@@ -115,7 +114,7 @@ searchBtn.onclick = () => {
     return;
   }
 
-  fetch("api/freunde_suchen.php", {
+  fetch("api/searchFriends.php", {
     method: "POST",
     body: new URLSearchParams({ phone }),
   })
@@ -152,4 +151,36 @@ confirmBtn.onclick = () => {
       ladeFreunde(); // Liste neu laden
     });
 };
+
+// =============================
+// 7. FREUND ENTFERNEN POPUP
+// =============================
+let selectedFriendId = null;
+
+function openRemovePopup(friendId, fullName) {
+  selectedFriendId = friendId;
+  document.getElementById("removeMessage").innerText = `Bist du sicher, dass du ${fullName} entfernen willst?`;
+  document.getElementById("removeConfirmModal").style.display = "block";
+}
+
+document.getElementById("cancelRemoveBtn").addEventListener("click", () => {
+  document.getElementById("removeConfirmModal").style.display = "none";
+  selectedFriendId = null;
+});
+
+document.getElementById("confirmRemoveBtn").addEventListener("click", () => {
+  if (!selectedFriendId) return;
+
+  fetch("api/removeFriends.php", {
+    method: "POST",
+    body: new URLSearchParams({ id: selectedFriendId }),
+  })
+    .then(res => res.text())
+    .then(() => {
+      ladeFreunde(); // neu laden
+      document.getElementById("removeConfirmModal").style.display = "none";
+      selectedFriendId = null;
+    })
+    .catch((err) => console.error("Fehler beim Entfernen:", err));
+});
 

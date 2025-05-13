@@ -245,19 +245,19 @@ h1 {
 #removeConfirmModal {
   display: none;
   position: fixed;
-  z-index: 200;
+  z-index: 300;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 #removeConfirmModal .modal-content {
-  background: white;
-  border: 4px solid #002147;
-  border-radius: 20px;
+  background-color: white;
   padding: 2rem;
+  border-radius: 20px;
+  border: 4px solid #002147;
   width: 90%;
   max-width: 420px;
   margin: 10% auto;
@@ -265,37 +265,37 @@ h1 {
   box-shadow: 0 0 15px rgba(0,0,0,0.25);
 }
 
-#removeConfirmModal p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+#removeConfirmModal .modal-content p {
+  font-size: 1.3rem;
   font-weight: bold;
-  color: #000;
+  margin-bottom: 2rem;
 }
 
 .modal-buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
 .btn-ja {
   background-color: #d38b26;
   color: white;
-  padding: 0.8rem 1.5rem;
-  font-weight: bold;
-  font-size: 1rem;
   border: none;
+  padding: 0.8rem 2rem;
   border-radius: 14px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
   cursor: pointer;
 }
 
 .btn-nein {
   background-color: white;
   color: #002147;
-  padding: 0.8rem 1.5rem;
-  font-weight: bold;
-  font-size: 1rem;
   border: 3px solid #002147;
+  padding: 0.8rem 2rem;
   border-radius: 14px;
+  font-weight: bold;
+  font-size: 1.1rem;
   cursor: pointer;
 }
