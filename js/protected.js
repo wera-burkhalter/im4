@@ -1,8 +1,8 @@
-console.log("homescreen.js loaded");
+console.log("protected.js loaded");
 
 //Infos aus dem PHP holen
 
-fetch("api/homescreen.php")
+fetch("api/protected.php")
     .then ((response) => response.json())
     .then((data) => {
         console.log(data);
