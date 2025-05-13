@@ -5,7 +5,7 @@ document
 .addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const phone = document.querySelector("#userPhone").value.trim();
+    const phone = document.querySelector("#phone").value.trim();
     const password = document.querySelector("#password").value;
 
 console.log("phone ist:", phone);
