@@ -84,8 +84,7 @@ h1 {
   background-color: #3c661f;
 }
 
-/* ---------- Modal ---------- */
-
+/* --- MODAL HINTERGRUND --- */
 .modal {
   display: none;
   position: fixed;
@@ -97,59 +96,92 @@ h1 {
   background: rgba(0, 0, 0, 0.6);
 }
 
+/* --- MODAL INHALT --- */
 .modal-content {
-  background-color: #fff;
-  margin: 15% auto;
+  background-color: #ffffff;
+  margin: 10% auto;
   padding: 2rem;
-  border-radius: 16px;
+  border-radius: 20px;
+  border: 4px solid #002147;
   width: 90%;
-  max-width: 400px;
-  text-align: center;
-  position: relative;
+  max-width: 420px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  position: relative;
+  text-align: left;
 }
 
+/* --- SCHLIESSEN-BUTTON (X) --- */
 .close-btn {
   position: absolute;
-  top: 12px;
-  right: 16px;
-  font-size: 1.5rem;
-  cursor: pointer;
+  top: 1.2rem;
+  right: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  color: #333;
+  color: #222;
+  cursor: pointer;
 }
 
+/* --- MODAL TITEL --- */
 .modal-content h2 {
-  margin-bottom: 1rem;
-  color: #002147;
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: #000;
+  font-weight: bold;
 }
 
+/* --- ERKLÄRUNGSTEXT --- */
+.modal-content p.description {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* --- LABEL --- */
+.modal-content label {
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+/* --- TELEFONEINGABE --- */
 .modal-content input[type="tel"] {
   width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
+  padding: 0.9rem;
   font-size: 1rem;
-  border: 2px solid #002147;
-  border-radius: 10px;
+  border: 4px solid #002147;
+  border-radius: 14px;
   outline: none;
+  margin-bottom: 1.5rem;
+  box-sizing: border-box;
 }
 
+/* --- SUCH-BUTTON --- */
 .modal-content button {
   background-color: #d38b26;
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 10px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 14px;
   font-weight: bold;
   cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.modal-content button:hover {
-  background-color: #ba741f;
+/* --- OPTIONAL ICON-STYLE (Lupe) im Button --- */
+.modal-content button::after {
+  content: "🔍";
+  font-size: 1rem;
 }
 
+/* --- FEEDBACK TEXT --- */
 #addFriendMessage {
   margin-top: 1rem;
-  color: #002147;
   font-weight: bold;
+  color: #002147;
 }

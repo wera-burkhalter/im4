@@ -20,16 +20,24 @@
   <!-- HINZUFÜGEN BUTTON -->
     <button id="addFriendBtn" class="hinzufuegen-button">hinzufügen +</button>
 
-    <!-- MODAL -->
-    <div id="addFriendModal" class="modal">
-        <div class="modal-content">
-         <span class="close-btn">&times;</span>
-     <h2>Freund hinzufügen</h2>
-         <input type="tel" id="friendPhone" placeholder="Telefonnummer" />
-         <button id="submitAddFriend">Suchen & Hinzufügen</button>
-     <p id="addFriendMessage"></p>
-        </div>
-    </div>
+  <!-- MODAL: Freunde hinzufügen -->
+<div id="addFriendModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+
+    <h2>Freunde hinzufügen</h2>
+    <p class="description">
+      Suche nach den Handy-Nr. deiner Freunde und füge sie zu deinem Netzwerk hinzu,
+      um sie bei künftigen Events einzuladen.
+    </p>
+
+    <label for="friendPhone">Handy Nr.</label>
+    <input type="tel" id="friendPhone" placeholder="z. B. 076 123 45 67" />
+
+    <button id="submitAddFriend">suchen</button>
+    <p id="addFriendMessage"></p>
+  </div>
+</div>
 
   <script src="js/friends.js"></script>
 </body>
