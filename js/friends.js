@@ -72,9 +72,9 @@ function entferneFreund(id) {
     .then((res) => res.text())
     .then((message) => {
       ladeFreunde();
-      document.getElementById("removeMessage").textContent = message;
+      document.getElementById("removeFeedback").textContent = message;
       setTimeout(() => {
-        document.getElementById("removeMessage").textContent = "";
+        document.getElementById("removeFeedback").textContent = "";
       }, 3000);
     })
     .catch((err) => console.error("Fehler beim Entfernen:", err));
