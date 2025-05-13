@@ -3,11 +3,19 @@
 session_start();
 
 if (isset($_SESSION['user_id'])) {
-    echo "User eingeloggt, ID:" . $_SESSION
-    ['user_id'] . ", Name:" . $_SESSION['firstName'];
-    ['username'] . "Handy-Nr.:" . $_SESSION['phone'];
-    
+
+    // falls wir eingeloggt sind, geben wir die Userdaten zurück
+    echo json_encode([
+        "status" => "success",
+        "user_id" => $_SESSION['user_id'],
+        "phone" => $_SESSION['phone'],
+        "firstName" => $_SESSION['firstName']
+    ]);
+
 } else {
-    echo "User nicht eingeloggt";
+    echo json_encode([
+        "status" => "error",
+    ]);
+    session_destroy();
 }
 
