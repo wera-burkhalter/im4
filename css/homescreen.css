@@ -22,7 +22,7 @@ h1 {
 
 .icon-wrapper {
   display: inline-block;
-  border-radius: 20px;         /* Abrundung */
+  border-radius: 15px;         /* Abrundung */
   overflow: hidden;            /* Bild sauber zuschneiden */
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15); /* Schatten */
   transition: transform 0.2s ease;
