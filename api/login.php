@@ -26,6 +26,7 @@ if ($user) {
         session_start();
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['phone'] = $user['phone'];
+        $_SESSION['firstName'] = $user['firstName'];
 
         echo "X";
 } else {
