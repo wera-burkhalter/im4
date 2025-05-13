@@ -11,7 +11,7 @@ fetch("api/homescreen.php")
             window.location.href = "login.html"; // redirect to Login-Seite
         } else{
             //write welcome message to html
-            document.getElementById("welcomeMessage") .innerHTML = "Willkommen " + data.firstname;
+            document.getElementById("welcomeMessage") .innerHTML = "Willkommen " + data.firstName;
 
 
         }
