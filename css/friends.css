@@ -185,3 +185,33 @@ h1 {
   font-weight: bold;
   color: #002147;
 }
+
+.freund-vorschau {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  border: 3px solid #002147;
+  border-radius: 20px;
+  padding: 1rem;
+  background: white;
+}
+
+.freund-vorschau img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.anfragen-button {
+  background-color: #4c7c2b;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 14px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
