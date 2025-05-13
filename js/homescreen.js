@@ -9,6 +9,11 @@ fetch("api/homescreen.php")
 
         if (data.status === "error") {
             window.location.href = "login.html"; // redirect to Login-Seite
+        } else{
+            //write welcome message to html
+            document.getElementById("welcomeMessage") .innerHTML = "Willkommen " + data.surname;
+
+
         }
     })
     .catch((error) => {
