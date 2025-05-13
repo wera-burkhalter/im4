@@ -299,3 +299,12 @@ h1 {
   font-size: 1.1rem;
   cursor: pointer;
 }
+
+.remove-feedback {
+  text-align: center;
+  color: #4c7c2b;
+  font-weight: bold;
+  margin: 1rem auto;
+  font-size: 1rem;
+  max-width: 90%;
+}

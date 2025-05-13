@@ -70,9 +70,16 @@ function entferneFreund(id) {
     body: new URLSearchParams({ id }),
   })
     .then((res) => res.text())
-    .then(() => ladeFreunde())
+    .then((message) => {
+      ladeFreunde();
+      document.getElementById("removeMessage").textContent = message;
+      setTimeout(() => {
+        document.getElementById("removeMessage").textContent = "";
+      }, 3000);
+    })
     .catch((err) => console.error("Fehler beim Entfernen:", err));
 }
+
 
 // =============================
 // 4. MODAL HANDLING
