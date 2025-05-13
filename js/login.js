@@ -30,7 +30,7 @@ console.log("password ist:", password);
         console.log("Antwort vom Server:\n" + reply);
         alert(reply); // einfache Ausgabe im Browser
 
-        if (reply==="Login erfolgreich!") {
+        if (reply==="X") {
 
             window.location.href = "homescreen.html"; // Weiterleitung zum Homescreen
         }
