@@ -185,8 +185,17 @@ document.getElementById("confirmRemoveBtn").addEventListener("click", () => {
     body: new URLSearchParams({ id: selectedFriendId }),
   })
     .then(res => res.text())
-    .then(() => {
-      ladeFreunde(); // neu laden
+    .then(msg => {
+      // Erfolgsmeldung anzeigen
+      const feedback = document.getElementById("removeFeedback");
+      if (feedback) {
+        feedback.textContent = msg;
+        setTimeout(() => {
+          feedback.textContent = "";
+        }, 3000);
+      }
+
+      ladeFreunde(); // Liste neu laden
       document.getElementById("removeConfirmModal").style.display = "none";
       selectedFriendId = null;
     })
