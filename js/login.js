@@ -15,7 +15,7 @@ console.log("password ist:", password);
 
     //Formulardaten vorbereiten
     const formData = new FormData();
-    formData.append("loginInfo", phone);
+    formData.append("loginInfo", loginInfo);
     formData.append("password", password);
 
     // Senden
