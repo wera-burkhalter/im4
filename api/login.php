@@ -16,7 +16,7 @@ $stmt = $pdo->prepare("SELECT * FROM benutzer WHERE phone = :phone");
 $stmt->execute([':phone' => $phone]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if (!$user) {
+if ($user) {
     echo "Telefon gefunden, jetzt Passwort prüfen";
 
 } else {
