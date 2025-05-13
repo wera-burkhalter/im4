@@ -15,15 +15,15 @@ fetch("api/protected.php")
     return res.json();
   })
   .then((data) => {
-    if (data.status === "error") {
-      window.location.href = "login.html";
-    } else {
-      if (data.profilbild && profilbild) {
-        profilbild.src = data.profilbild;
-      }
-      ladeFreunde(); // Wenn erfolgreich, lade auch gleich die Freunde
+  if (data.status === "error") {
+    window.location.href = "login.html";
+  } else {
+    if (data.profilbild && profilbild) {
+      profilbild.src = data.profilbild;
     }
-  })
+    ladeFreunde(); // <- WICHTIG!
+  }
+})
   .catch((err) => {
     console.error("Fehler beim Laden der Sessiondaten:", err);
     alert("Fehler beim Laden. Bitte neu einloggen.");
