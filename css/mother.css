@@ -31,12 +31,12 @@ p {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 430px; /* typischer Handy-Maßstab */
+  max-width: 430px;
   background-color: #002147;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0.8rem 0 0.6rem;
+  padding: 0.5rem 0 0.4rem; /* 👈 Weniger Höhe */
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   z-index: 999;
@@ -57,13 +57,13 @@ p {
 
 /* HERVORGEHOBENES ICON */
 .footer-menu .active-icon {
-  background-color: white;
+  background-color: #fffff9;
   border-radius: 50%;
   width: 56px;
   height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translateY(-20%);
+  transform: translateY(-30%); /* 👈 Weiter nach oben */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
