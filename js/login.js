@@ -5,17 +5,17 @@ document
 .addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const loginInfo = document.querySelector("#userPhone").value.trim();
+    const phone = document.querySelector("#userPhone").value.trim();
     const password = document.querySelector("#password").value;
 
-console.log("loginInfo ist:", loginInfo);
+console.log("phone ist:", phone);
 console.log("password ist:", password);
 
 
 
     //Formulardaten vorbereiten
     const formData = new FormData();
-    formData.append("loginInfo", loginInfo);
+    formData.append("phone", phone);
     formData.append("password", password);
 
     // Senden
