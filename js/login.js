@@ -1,7 +1,7 @@
 console.log("login.js loaded");
 
 document
-.getElementById("registerForm")
+.getElementById("loginForm")
 .addEventListener("submit", async (e) => {
     e.preventDefault();
 
