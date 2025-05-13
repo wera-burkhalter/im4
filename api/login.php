@@ -17,9 +17,19 @@ $stmt->execute([':phone' => $phone]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if ($user) {
-    echo "Telefon gefunden, jetzt Passwort prüfen";
+    if (password_verify($password, $user['password'])) {
+        echo "Login erfolgreich!";
+   
+        session_start();
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['phone'] = $user['phone'];
+
 
 } else {
-    echo "Telefon nicht korrekt";
-    
+    echo "Passwort nicht korrekt";  
 }
+
+else {
+    echo "Telefonnummer nicht korrekt";
+    exit;
+}}
