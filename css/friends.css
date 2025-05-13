@@ -1,40 +1,39 @@
-/* Container für alles */
-.container {
-  max-width: 420px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  text-align: center;
-}
+
 
 /* Profilbild oben */
+.profilbild {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
 .profil-header {
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
+
 .profil-header img {
   width: 90px;
   height: 90px;
   border-radius: 50%;
   object-fit: cover;
 }
-
 /* Überschrift */
 h1 {
-  font-size: clamp(24px, 5vw, 36px);
-  color: black;
-  font-weight: bold;
-  margin-bottom: 2rem;
+  font-size: clamp(26px, 5vw, 36px);
+  color: #002147;
+  margin-bottom: 1.5rem;
 }
 
-/* Box für Freunde */
+/* Freundesliste Container */
 .freunde-liste {
+  max-width: 400px;
+  margin: 0 auto;
   border: 3px solid #002147;
-  border-radius: 20px;
+  border-radius: 16px;
   padding: 1rem;
-  text-align: left;
-  margin: 0 auto 2rem auto;
-  max-width: 360px;
 }
 
 /* Einzelner Freund */
@@ -43,7 +42,7 @@ h1 {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .freund-box img {
@@ -51,14 +50,13 @@ h1 {
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .freund-box span {
   flex-grow: 1;
-  font-weight: 500;
+  text-align: left;
+  font-weight: bold;
   color: #002147;
-  font-size: 1rem;
 }
 
 /* Entfernen-Button */
@@ -66,25 +64,165 @@ h1 {
   background-color: #d38b26;
   color: white;
   border: none;
-  padding: 0.5rem 1.2rem;
-  border-radius: 10px;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-  font-size: 0.9rem;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease;
 }
 
-/* Hinzufügen Button */
+.entfernen-button:hover {
+  background-color: #ba741f;
+}
+
+/* Hinzufügen-Button */
 .hinzufuegen-button {
-  display: block;
-  margin: 0 auto 4rem auto;
+  display: inline-block;
+  margin-top: 2rem;
   background-color: #4c7c2b;
   color: white;
   padding: 0.75rem 1.5rem;
-  border-radius: 16px;
-  font-size: 1.1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.hinzufuegen-button:hover {
+  background-color: #3c661f;
+}
+
+/* --- MODAL HINTERGRUND --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* --- MODAL INHALT --- */
+.modal-content {
+  background-color: #ffffff;
+  margin: 10% auto;
+  padding: 2rem;
+  border-radius: 20px;
+  border: 4px solid #002147;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  position: relative;
+  text-align: left;
+}
+
+/* --- SCHLIESSEN-BUTTON (X) --- */
+.close-btn {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #222;
+  cursor: pointer;
+}
+
+/* --- MODAL TITEL --- */
+.modal-content h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: #000;
+  font-weight: bold;
+}
+
+/* --- ERKLÄRUNGSTEXT --- */
+.modal-content p.description {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* --- LABEL --- */
+.modal-content label {
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+/* --- TELEFONEINGABE --- */
+.modal-content input[type="tel"] {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  border: 4px solid #002147;
+  border-radius: 14px;
+  outline: none;
+  margin-bottom: 1.5rem;
+  box-sizing: border-box;
+}
+
+/* --- SUCH-BUTTON --- */
+.modal-content button {
+  background-color: #d38b26;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 14px;
   font-weight: bold;
   cursor: pointer;
-  border: none;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* --- OPTIONAL ICON-STYLE (Lupe) im Button --- */
+.modal-content button::after {
+  content: "🔍";
+  font-size: 1rem;
+}
+
+/* --- FEEDBACK TEXT --- */
+#addFriendMessage {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #002147;
+}
+
+.freund-vorschau {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  border: 3px solid #002147;
+  border-radius: 20px;
+  padding: 1rem;
+  background: white;
+}
+
+.freund-vorschau img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.anfragen-button {
+  background-color: #4c7c2b;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 14px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
 }
