@@ -1,14 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invyte | Deine Freunde</title>
-    <link rel="stylesheet" href="css/mother.css">
-    <link rel="stylesheet" href="css/friends.css">
-    <link rel="icon" href="assets/Logo_Invyte.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invyte | Freunde</title>
+  <link rel="stylesheet" href="css/mother.css" />
+  <link rel="stylesheet" href="css/friends.css" />
 </head>
 <body>
-    
+
+  <div class="profil">
+    <img id="profilbild" src="assets/standard_avatar.png" alt="Profilbild" class="profilbild" />
+  </div>
+
+  <h1>DEINE FREUNDE</h1>
+
+  <div id="freundeListe" class="freunde-liste"></div>
+
+  <!-- HINZUFÜGEN BUTTON -->
+    <button id="addFriendBtn" class="hinzufuegen-button">hinzufügen +</button>
+
+    <!-- MODAL -->
+    <div id="addFriendModal" class="modal">
+        <div class="modal-content">
+         <span class="close-btn">&times;</span>
+     <h2>Freund hinzufügen</h2>
+         <input type="tel" id="friendPhone" placeholder="Telefonnummer" />
+         <button id="submitAddFriend">Suchen & Hinzufügen</button>
+     <p id="addFriendMessage"></p>
+        </div>
+    </div>
+
+  <script src="js/friends.js"></script>
 </body>
 </html>

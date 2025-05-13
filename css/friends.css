@@ -1,0 +1,155 @@
+
+
+/* Profilbild oben */
+.profilbild {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+/* Überschrift */
+h1 {
+  font-size: clamp(26px, 5vw, 36px);
+  color: #002147;
+  margin-bottom: 1.5rem;
+}
+
+/* Freundesliste Container */
+.freunde-liste {
+  max-width: 400px;
+  margin: 0 auto;
+  border: 3px solid #002147;
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+/* Einzelner Freund */
+.freund-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.freund-box img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.freund-box span {
+  flex-grow: 1;
+  text-align: left;
+  font-weight: bold;
+  color: #002147;
+}
+
+/* Entfernen-Button */
+.entfernen-button {
+  background-color: #d38b26;
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease;
+}
+
+.entfernen-button:hover {
+  background-color: #ba741f;
+}
+
+/* Hinzufügen-Button */
+.hinzufuegen-button {
+  display: inline-block;
+  margin-top: 2rem;
+  background-color: #4c7c2b;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.hinzufuegen-button:hover {
+  background-color: #3c661f;
+}
+
+/* ---------- Modal ---------- */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+  color: #002147;
+}
+
+.modal-content input[type="tel"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border: 2px solid #002147;
+  border-radius: 10px;
+  outline: none;
+}
+
+.modal-content button {
+  background-color: #d38b26;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #ba741f;
+}
+
+#addFriendMessage {
+  margin-top: 1rem;
+  color: #002147;
+  font-weight: bold;
+}
