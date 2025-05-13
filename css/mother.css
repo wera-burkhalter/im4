@@ -47,12 +47,23 @@ p {
   width: 32px;
   height: 32px;
 }
+.footer-menu .icon-einladungen img {
+  width: 24px;
+}
+
+.footer-menu .icon-freunde img {
+  width: 26px;
+}
 
 /* HERVORGEHOBENES ICON */
 .footer-menu .active-icon {
   background-color: white;
   border-radius: 50%;
-  padding: 0.7rem;
-  margin-top: -1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-20%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
