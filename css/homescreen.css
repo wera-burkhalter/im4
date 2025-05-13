@@ -25,9 +25,6 @@ h1 {
   margin: 1rem;
   transition: transform 0.2s ease;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15); /* ✅ Hier ist der Schatten */
-  border-radius: 16px; /* Optional für abgerundete Kachelform */
-  background-color: white; /* Falls Icons transparent sind */
-  padding: 1rem; /* Optional für gleichmäßigen Rahmen innen */
 }
 
 .homescreenIcons:hover {
