@@ -149,7 +149,7 @@ searchBtn.onclick = () => {
 confirmBtn.onclick = () => {
   if (!currentFriendId) return;
 
-  fetch("api/freunde_hinzufuegen.php", {
+  fetch("api/addFriends.php", {
     method: "POST",
     body: new URLSearchParams({ friend_id: currentFriendId }),
   })
