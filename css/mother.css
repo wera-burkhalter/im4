@@ -64,6 +64,5 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translateY(-30%); /* 👈 Weiter nach oben */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-60%); /* 👈 Weiter nach oben */
 }
