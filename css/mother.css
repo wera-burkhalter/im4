@@ -24,3 +24,32 @@ p {
     font-family: 'Poppins', sans-serif;
     font-size: clamp(16px, 2.5vw, 20px);
 }
+
+.footer-menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #002147;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.8rem 0 0.6rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  z-index: 999;
+}
+
+.footer-menu a img {
+  width: 32px;
+  height: 32px;
+}
+
+/* HERVORGEHOBENES ICON */
+.footer-menu .active-icon {
+  background-color: white;
+  border-radius: 50%;
+  padding: 0.7rem;
+  margin-top: -1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
