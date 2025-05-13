@@ -22,10 +22,9 @@ h1 {
 
 .icon-wrapper {
   display: inline-block;
-  border-radius: 15px;         /* Abrundung */
-  overflow: hidden;            /* Bild sauber zuschneiden */
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15); /* Schatten */
-  transition: transform 0.2s ease;
+  border-radius: 20px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .icon-wrapper:hover {
@@ -34,8 +33,10 @@ h1 {
 }
 
 .homescreenIcons {
-  width: 120px;
   display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
 }
 
 .homescreenIcons:hover {
