@@ -1,5 +1,10 @@
 
-
+.container {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  text-align: center;
+}
 /* Profilbild oben */
 .profilbild {
   width: 80px;
@@ -12,6 +17,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 1.5rem;
+  margin-top: 2rem; /* Abstand nach oben */
 }
 
 .profil-header img {
@@ -22,9 +28,11 @@
 }
 /* Überschrift */
 h1 {
+  text-align: center;
   font-size: clamp(26px, 5vw, 36px);
+  font-weight: bold;
   color: #002147;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 /* Freundesliste Container */
@@ -78,8 +86,8 @@ h1 {
 
 /* Hinzufügen-Button */
 .hinzufuegen-button {
-  display: inline-block;
-  margin-top: 2rem;
+  display: block;
+  margin: 2rem auto 5rem auto;
   background-color: #4c7c2b;
   color: white;
   padding: 0.75rem 1.5rem;
