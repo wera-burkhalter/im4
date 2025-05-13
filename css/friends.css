@@ -8,7 +8,18 @@
   object-fit: cover;
   margin-bottom: 1rem;
 }
+.profil-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
 
+.profil-header img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 /* Überschrift */
 h1 {
   font-size: clamp(26px, 5vw, 36px);

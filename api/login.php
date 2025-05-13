@@ -24,6 +24,7 @@ if ($user) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['phone'] = $user['phone'];
         $_SESSION['firstName'] = $user['firstName'];
+        $_SESSION['profilbild'] = $user['profilbild']; 
 
         echo "X";
 } else {
