@@ -1,0 +1,1 @@
+console.log("homescreen.js loaded");
