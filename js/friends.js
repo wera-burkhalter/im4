@@ -72,14 +72,16 @@ function entferneFreund(id) {
     .then((res) => res.text())
     .then((message) => {
       ladeFreunde();
-      document.getElementById("removeFeedback").textContent = message;
-      setTimeout(() => {
-        document.getElementById("removeFeedback").textContent = "";
-      }, 3000);
+      const feedback = document.getElementById("removeFeedback");
+      if (feedback) {
+        feedback.textContent = message;
+        setTimeout(() => {
+          feedback.textContent = "";
+        }, 3000);
+      }
     })
     .catch((err) => console.error("Fehler beim Entfernen:", err));
 }
-
 
 // =============================
 // 4. MODAL HANDLING
