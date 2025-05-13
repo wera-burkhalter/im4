@@ -29,6 +29,12 @@ console.log("password ist:", password);
         
         console.log("Antwort vom Server:\n" + data);
         alert(data); // einfache Ausgabe im Browser
+
+        if (data==="Login erfolgreich!") {
+
+            window.location.href = "homescreen.html"; // Weiterleitung zum Homescreen
+        }
+
     } catch (error) {
         console.error("Fehler beim Senden der Anfrage:", error);
         alert("Ein Fehler ist aufgetreten.");

@@ -26,6 +26,7 @@ if ($user) {
         session_start();
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['phone'] = $user['phone'];
+        
         echo "Login erfolgreich!";
 } else {
     echo "Passwort nicht korrekt";  
