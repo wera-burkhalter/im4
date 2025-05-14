@@ -1,14 +1,48 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invyte | Kalender</title>
-    <link rel="stylesheet" href="css/mother.css">
-    <link rel="stylesheet" href="css/calendar.css">
-    <link rel="icon" href="assets/Logo_Invyte.png">
-</head>
-<body>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/mother.css">
+  <link rel="stylesheet" href="css/calendar.css">
+  <title>Kalender</title>
+    
+
+<div class="profil-header">
+  <img id="profilbild" src="assets/standard_avatar.png" alt="Profilbild">
+</div>
+
+<h1>KALENDER</h1>
+
+<div id="kalenderContainer" class="kalender-container"></div>
+
+<div id="eventPreviewContainer"></div>
+
+<!-- Modal mit Detailinfos -->
+<div id="eventDetailModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeDetail">&times;</span>
+    <h2 id="eventTitle"></h2>
+    <p><span id="eventDatePlace"></span></p>
+    <p><span id="eventTime"></span></p>
+    <img id="eventImage" src="" alt="Eventbild" />
+    <p id="eventDescription"></p>
+
+    <button id="abmeldenBtn" class="abmelden-button" style="display: none;">abmelden</button>
+  </div>
+</div>
+
+<!-- Bestätigungs-Popup -->
+<div id="confirmModal" class="modal">
+  <div class="modal-content">
+    <p id="confirmText">Bist du sicher, dass du dich abmelden willst?</p>
+    <div class="modal-buttons">
+      <button id="confirmYes" class="btn-ja">ja</button>
+      <button id="confirmNo" class="btn-nein">nein</button>
+    </div>
+  </div>
+</div>
 
 <nav class="footer-menu">
   <a href="events.html"><img src="assets/icon-events.png" alt="Events"></a>
@@ -19,6 +53,7 @@
   <a href="invitations.html"><img src="assets/icon-invitations.png" alt="Einladungen"></a>
   <a href="friends.html"><img src="assets/icon-friends.png" alt="Freunde"></a>
 </nav>
-    
+
+<script src="js/calendar.js"></script>
 </body>
 </html>
