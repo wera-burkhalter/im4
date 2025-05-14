@@ -17,6 +17,12 @@ body {
   margin-bottom: 1.5rem;
   margin-top: 2rem; /* Abstand nach oben */
 }
+.profil-header img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 h1 {
   font-size: clamp(24px, 5vw, 32px);
   font-weight: 800;
