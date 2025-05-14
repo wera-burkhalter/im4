@@ -19,3 +19,26 @@ fetch("api/protected.php")
     .catch((error) => {
     console.error("Fehler beim Senden:", error);
     });
+
+    // =============================
+// 1. SESSIONDATEN LADEN (User-Profilbild etc.)
+// =============================
+fetch("api/protected.php")
+  .then((res) => {
+    if (!res.ok) throw new Error("Antwortstatus nicht OK");
+    return res.json();
+  })
+  .then((data) => {
+  if (data.status === "error") {
+    window.location.href = "login.html";
+  } else {
+    if (data.profilbild && profilbild) {
+      profilbild.src = data.profilbild;
+    }
+    ladeFreunde(); // <- WICHTIG!
+  }
+})
+  .catch((err) => {
+    console.error("Fehler beim Laden der Sessiondaten:", err);
+    alert("Fehler beim Laden. Bitte neu einloggen.");
+  });
