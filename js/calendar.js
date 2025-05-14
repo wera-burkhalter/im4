@@ -1,125 +1,164 @@
+// calendar.js
+console.log("calendar.js geladen");
+
 let currentDate = new Date();
-let allEventDates = []; // Array der Event-Daten im Format "YYYY-MM-DD"
+let allEvents = [];
+let currentUserId = null;
 
-// =============================
-// INIT: Session + Events + Kalender
-// =============================
-document.addEventListener("DOMContentLoaded", () => {
-  ladeSession();
-  ladeEvents();
-  renderCalendar();
-});
+const profilbild = document.getElementById("profilbild");
+const monthYearDisplay = document.getElementById("monthYear");
+const calendarDays = document.getElementById("calendarDays");
+const calendarDates = document.getElementById("calendarDates");
+const eventPreviewContainer = document.getElementById("eventPreviewContainer");
 
-// =============================
-// 1. Sessiondaten laden (Profilbild)
-// =============================
-function ladeSession() {
-  fetch("api/protected.php")
-    .then(res => res.json())
-    .then(data => {
+const modal = document.getElementById("eventDetailModal");
+const closeModalBtn = document.getElementById("closeDetailModal");
+const confirmModal = document.getElementById("confirmModal");
+const confirmYes = document.getElementById("confirmYes");
+const confirmNo = document.getElementById("confirmNo");
+const abmeldenBtn = document.getElementById("abmeldenBtn");
+
+// ========================
+// 1. SESSIONDATEN HOLEN
+// ========================
+fetch("api/protected.php")
+  .then(res => res.json())
+  .then(data => {
+    if (data.status === "error") {
+      window.location.href = "login.html";
+    } else {
+      currentUserId = data.user_id;
       if (data.profilbild) {
-        document.getElementById("profilbild").src = data.profilbild;
+        profilbild.src = data.profilbild;
       }
-    });
-}
+      loadEvents();
+    }
+  });
 
-// =============================
-// 2. Events vom Server laden
-// =============================
-function ladeEvents() {
+// ========================
+// 2. EVENTDATEN LADEN
+// ========================
+function loadEvents() {
   fetch("api/calendar.php")
     .then(res => res.json())
     .then(data => {
-      allEventDates = data.map(event => event.date); // Array: ["2025-05-16", ...]
+      allEvents = data;
       renderCalendar();
     });
 }
 
-// =============================
-// 3. Kalender generieren
-// =============================
+// ========================
+// 3. KALENDER RENDERING
+// ========================
 function renderCalendar() {
-  const grid = document.getElementById("kalenderGrid");
-  const monthYear = document.getElementById("monthYear");
-  grid.innerHTML = "";
-
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
   const firstDay = new Date(year, month, 1).getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-  monthYear.textContent = currentDate.toLocaleDateString("de-DE", { month: "long", year: "numeric" });
+  const monthNames = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+  monthYearDisplay.textContent = `${monthNames[month]} ${year}`;
 
-  const startDay = (firstDay + 6) % 7;
-  for (let i = 0; i < startDay; i++) {
-    grid.appendChild(document.createElement("div"));
+  calendarDays.innerHTML = ["MO", "DI", "MI", "DO", "FR", "SA", "SO"].map(d => `<div>${d}</div>`).join("");
+  calendarDates.innerHTML = "";
+
+  const offset = (firstDay + 6) % 7;
+  for (let i = 0; i < offset; i++) {
+    calendarDates.innerHTML += `<div></div>`;
   }
 
   for (let day = 1; day <= daysInMonth; day++) {
-    const tag = document.createElement("div");
-    const dateStr = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+    const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    const hasEvent = allEvents.some(e => e.date === dateStr);
 
-    tag.textContent = String(day).padStart(2, "0");
-    if (allEventDates.includes(dateStr)) tag.classList.add("event-tag");
+    const div = document.createElement("div");
+    div.textContent = String(day).padStart(2, '0');
+    div.className = hasEvent ? "event-day" : "";
 
-    tag.addEventListener("click", () => {
-      document.querySelectorAll(".active-date").forEach(e => e.classList.remove("active-date"));
-      tag.classList.add("active-date");
-      zeigeEventPreview(dateStr);
-    });
+    if (hasEvent) {
+      div.addEventListener("click", () => showEventPreview(dateStr));
+    }
 
-    grid.appendChild(tag);
+    calendarDates.appendChild(div);
   }
 }
 
-// Monat vor/zurück
+// ========================
+// 4. VORSCHAU ANZEIGEN
+// ========================
+function showEventPreview(date) {
+  const events = allEvents.filter(e => e.date === date);
 
-document.getElementById("prevMonth").onclick = () => {
+  eventPreviewContainer.innerHTML = events.map(e => `
+    <div class="event-box" onclick="showEventDetail(${e.id})">
+      <h3>${e.title}</h3>
+      <p>${e.date} | ${e.place}</p>
+      <div class="event-creator">
+        <img src="${e.creator_image}" alt="${e.creator_name}">
+        <span>${e.creator_name}</span>
+      </div>
+    </div>
+  `).join("");
+}
+
+// ========================
+// 5. EVENT-DETAIL ANZEIGEN
+// ========================
+function showEventDetail(id) {
+  const event = allEvents.find(e => e.id == id);
+  if (!event) return;
+
+  document.getElementById("detailTitle").textContent = event.title;
+  document.getElementById("detailDatePlace").textContent = `${event.date} | ${event.place}`;
+  document.getElementById("detailTime").textContent = event.time ? `${event.time} Uhr` : "";
+  document.getElementById("detailImage").src = event.image;
+  document.getElementById("detailDescription").textContent = event.description;
+  document.getElementById("creatorImage").src = event.creator_image;
+  document.getElementById("creatorName").textContent = event.creator_name;
+
+  abmeldenBtn.style.display = (event.creator_id != currentUserId) ? "block" : "none";
+  abmeldenBtn.onclick = () => openUnsubscribePopup(id);
+
+  modal.style.display = "block";
+}
+
+closeModalBtn.onclick = () => modal.style.display = "none";
+
+// ========================
+// 6. ABMELDEN
+// ========================
+let currentEventToUnsubscribe = null;
+function openUnsubscribePopup(eventId) {
+  currentEventToUnsubscribe = eventId;
+  confirmModal.style.display = "block";
+}
+
+confirmNo.onclick = () => {
+  confirmModal.style.display = "none";
+  currentEventToUnsubscribe = null;
+};
+
+confirmYes.onclick = () => {
+  if (!currentEventToUnsubscribe) return;
+
+  fetch("api/calendar_unsubscribe.php", {
+    method: "POST",
+    body: new URLSearchParams({ event_id: currentEventToUnsubscribe })
+  })
+    .then(res => res.text())
+    .then(() => {
+      confirmModal.style.display = "none";
+      modal.style.display = "none";
+      loadEvents();
+    });
+};
+
+document.getElementById("prevMonthBtn").onclick = () => {
   currentDate.setMonth(currentDate.getMonth() - 1);
   renderCalendar();
 };
 
-document.getElementById("nextMonth").onclick = () => {
+document.getElementById("nextMonthBtn").onclick = () => {
   currentDate.setMonth(currentDate.getMonth() + 1);
   renderCalendar();
-};
-
-// =============================
-// 4. Events anzeigen unter dem Kalender
-// =============================
-function zeigeEventPreview(dateStr) {
-  fetch(`api/calendar.php?date=${dateStr}`)
-    .then(res => res.json())
-    .then(events => {
-      const container = document.getElementById("eventPreviewContainer");
-      container.innerHTML = "";
-
-      events.forEach(evt => {
-        const card = document.createElement("div");
-        card.className = "event-preview-card";
-        card.innerHTML = `
-          <h3>${evt.title}</h3>
-          <p>${evt.date} | ${evt.place}</p>
-          <p><img src="${evt.creatorImage}" alt="Ersteller" style="width:30px; border-radius:50%;"> ${evt.creatorName}</p>
-        `;
-        card.onclick = () => zeigeDetail(evt.id);
-        container.appendChild(card);
-      });
-    });
-}
-
-// =============================
-// 5. Detailansicht (Pop-up)
-// =============================
-function zeigeDetail(eventId) {
-  fetch(`api/calendar.php?event_id=${eventId}`)
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("eventDetails").innerHTML = html;
-      document.getElementById("eventModal").style.display = "block";
-    });
-}
-
-document.querySelector(".close-btn").onclick = () => {
-  document.getElementById("eventModal").style.display = "none";
 };

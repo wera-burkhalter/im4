@@ -15,23 +15,40 @@
 
 <h1>KALENDER</h1>
 
-<div id="kalenderContainer" class="kalender-container"></div>
-
-<div id="eventPreviewContainer"></div>
-
-<!-- Modal mit Detailinfos -->
-<div id="eventDetailModal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" id="closeDetail">&times;</span>
-    <h2 id="eventTitle"></h2>
-    <p><span id="eventDatePlace"></span></p>
-    <p><span id="eventTime"></span></p>
-    <img id="eventImage" src="" alt="Eventbild" />
-    <p id="eventDescription"></p>
-
-    <button id="abmeldenBtn" class="abmelden-button" style="display: none;">abmelden</button>
+  <!-- Kalenderbereich -->
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <button id="prevMonthBtn">←</button>
+      <span id="monthYear"></span>
+      <button id="nextMonthBtn">→</button>
+    </div>
+    <div class="calendar-grid" id="calendarDays">
+      <!-- Wochentage -->
+    </div>
+    <div class="calendar-grid" id="calendarDates">
+      <!-- Dynamisch generierte Tage -->
+    </div>
   </div>
-</div>
+
+  <!-- Event-Vorschau -->
+  <div id="eventPreviewContainer"></div>
+
+  <!-- Event-Details Modal -->
+  <div id="eventDetailModal">
+    <div class="event-detail-box">
+      <span class="close-btn" id="closeDetailModal">&times;</span>
+      <h2 id="detailTitle"></h2>
+      <p id="detailDatePlace"></p>
+      <p id="detailTime"></p>
+      <img id="detailImage" src="" alt="Eventbild">
+      <p id="detailDescription" class="event-description"></p>
+      <div class="event-creator">
+        <img id="creatorImage" src="" alt="Ersteller">
+        <span id="creatorName"></span>
+      </div>
+      <button id="abmeldenBtn" class="abmelden-button" style="display: none;">abmelden</button>
+    </div>
+  </div>
 
 <!-- Bestätigungs-Popup -->
 <div id="confirmModal" class="modal">

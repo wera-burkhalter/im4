@@ -23,6 +23,8 @@ body {
   border-radius: 50%;
   object-fit: cover;
 }
+
+
 h1 {
   font-size: clamp(24px, 5vw, 32px);
   font-weight: 800;
