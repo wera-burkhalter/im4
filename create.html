@@ -16,7 +16,7 @@
 
         <!--Bild-->
             <!-- Versteckter Dateiupload -->
-            <input type="file" id="imageInput" name="image" accept="image/*" required hidden />
+            <input type="file" id="imageInput" name="image" accept="image/*"/>
 
             <!-- Klickbares Icon -->
             <label for="imageInput" class="upload-label">
@@ -25,19 +25,19 @@
 
         <!--Titel-->
         <label>*Titel</label>
-        <input type="text" name="title" required/>
+        <input type="text" name="title" required title="Bitte gib einen Titel ein"/>
 
         <!--Beschreibung-->
         <label>*Beschreibung</label>
-        <textarea name="description" required></textarea>
+        <textarea name="description" required title="Bitte gibt eine Beschreibung ein"></textarea>
 
         <!--Datum-->
         <label>*Datum</label>
-        <input type="date" name="date" required/>
+        <input type="date" name="date" required title="Bitte gib ein Datum an"/>
 
         <!--Ort-->
         <label>*Ort</label>
-        <input type="text" name="place" required/>
+        <input type="text" name="place" required title="Bitte gib einen Ort ein"/>
 
         <!--Uhrzeit-->
         <label>Uhrzeit</label>
@@ -45,7 +45,7 @@
 
         <!--Rückmeldefrist-->
         <label>*Rückmeldefrist</label>
-        <input type="date" name="deadline" required/>
+        <input type="date" name="deadline" required title="Bitte gib eine Rückmeldefrist an"/>
 
         <button type="submit">Speichern</button>
         <p id="successMessage" style="color: green; display: none">Dein Event wurde erfolgreich erstellt!</p>
