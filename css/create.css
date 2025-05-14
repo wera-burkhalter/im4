@@ -1,0 +1,116 @@
+/* --- Layout des Formularbereichs --- */
+form#eventForm {
+  max-width: 450px;
+  margin: 2rem auto;
+  background-color: #fffff9;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Allgemeine Abstände & Labels --- */
+form#eventForm label {
+  display: block;
+  font-weight: bold;
+  color: #002147;
+  margin-top: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+/* --- Eingabefelder --- */
+form#eventForm input[type="text"],
+form#eventForm input[type="date"],
+form#eventForm input[type="file"],
+form#eventForm textarea,
+form#eventForm select {
+  width: 100%;
+  padding: 0.7rem;
+  font-size: 1rem;
+  border: 2px solid #003b71;
+  border-radius: 14px;
+  background-color: white;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* --- Textarea --- */
+form#eventForm textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* --- File-Upload Button (optional) --- */
+form#eventForm input[type="file"]::file-selector-button {
+  background-color: #003b71;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  margin-right: 1rem;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* --- Speichern-Button --- */
+form#eventForm button[type="submit"] {
+  width: 100%;
+  margin-top: 2rem;
+  background-color: #d58200;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 0.9rem;
+  font-size: 1.1rem;
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+form#eventForm button[type="submit"]:hover {
+  background-color: #b46a00;
+}
+
+/* --- Erfolgsnachricht --- */
+#successMessage {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: bold;
+  color: green;
+  display: none;
+}
+
+/* --- Kamera-Icon (wenn du es über CSS einbinden willst) --- */
+.kamera-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.kamera-icon img {
+  width: 60px;
+  height: 60px;
+}
+
+/* --- Freunde-Avatare (Platzhalter für später) --- */
+.freunde-liste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.freunde-liste img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* --- Mobile Optimierung --- */
+@media (max-width: 480px) {
+  form#eventForm {
+    padding: 1rem;
+  }
+}
