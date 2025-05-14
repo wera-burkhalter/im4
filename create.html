@@ -8,7 +8,44 @@
     <link rel="icon" href="assets/Logo_Invyte.png">
     <title>Document</title>
 </head>
+
 <body>
+
+    <form id="eventForm" enctype="multipart/form-data">
+        <h1>Event erstellen</h1>
+
+        <!--Bild-->
+        <label>*Bild</label>
+        <input type="file" name="image" accept="image/*" required/>
+
+        <!--Titel-->
+        <label>*Titel</label>
+        <input type="text" name="title" required/>
+
+        <!--Beschreibung-->
+        <label>*Beschreibung</label>
+        <textarea name="description" required></textarea>
+
+        <!--Datum-->
+        <label>*Datum</label>
+        <input type="date" name="date" required/>
+
+        <!--Ort-->
+        <label>*Ort</label>
+        <input type="text" name="place" required/>
+
+        <!--Uhrzeit-->
+        <label>Uhrzeit</label>
+        <input type="text" name="time" placeholder="zB. ab 14:30 Uhr">
+
+        <!--Rückmeldefrist-->
+        <label>*Rückmeldefrist</label>
+        <input type="date" name="deadline" required/>
+
+        <button type="submit">Speichern</button>
+        <p id="successMessage" style="color: green; display: none">Dein Event wurde erfolgreich erstellt!</p>
+    </form>
     
+    <script src="js/create.js"></script>
 </body>
 </html>
