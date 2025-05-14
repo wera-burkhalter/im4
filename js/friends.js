@@ -33,7 +33,7 @@ fetch("api/protected.php")
 // 2. FREUNDE LADEN
 // =============================
 function ladeFreunde() {
-  fetch("api/freunde_anzeigen.php")
+  fetch("api/showFriends.php")
     .then((res) => res.json())
     .then((freunde) => {
       freundeListe.innerHTML = ""; // Liste leeren
