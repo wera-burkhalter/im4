@@ -16,7 +16,13 @@
 
         <!--Bild-->
         <label>*Bild</label>
-        <input type="file" name="image" accept="image/*" required/>
+            <!-- Versteckter Dateiupload -->
+            <input type="file" id="imageInput" name="image" accept="image/*" required hidden />
+
+            <!-- Klickbares Icon -->
+            <label for="imageInput" class="upload-label">
+             <img src="assets/icon-upload-picture.png" alt="Bild hochladen" />
+            </label>
 
         <!--Titel-->
         <label>*Titel</label>

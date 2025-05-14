@@ -39,17 +39,26 @@ form#eventForm textarea {
   min-height: 80px;
 }
 
-/* --- File-Upload Button (optional) --- */
-form#eventForm input[type="file"]::file-selector-button {
-  background-color: #003b71;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  margin-right: 1rem;
+/* --- Upload Bild --- */
+.upload-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
+  margin: 1rem auto;
 }
+
+.upload-label img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.upload-label img:hover {
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
 
 /* --- Speichern-Button --- */
 form#eventForm button[type="submit"] {
