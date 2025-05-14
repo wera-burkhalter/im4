@@ -12,7 +12,7 @@ form#eventForm {
 form#eventForm label {
   display: block;
   font-weight: bold;
-  color: #002147;
+  color: #003366;
   margin-top: 1.2rem;
   margin-bottom: 0.4rem;
 }
@@ -26,9 +26,9 @@ form#eventForm select {
   width: 100%;
   padding: 0.7rem;
   font-size: 1rem;
-  border: 2px solid #003b71;
+  border: 2px solid #003366;
   border-radius: 14px;
-  background-color: white;
+  background-color: #fffff9;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
@@ -40,6 +40,12 @@ form#eventForm textarea {
 }
 
 /* --- Upload Bild --- */
+.upload-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
 .upload-label {
   display: flex;
   justify-content: center;
@@ -64,7 +70,7 @@ form#eventForm textarea {
 form#eventForm button[type="submit"] {
   width: 100%;
   margin-top: 2rem;
-  background-color: #d58200;
+  background-color: #D57F00;
   color: white;
   font-weight: bold;
   border: none;
@@ -77,7 +83,7 @@ form#eventForm button[type="submit"] {
 }
 
 form#eventForm button[type="submit"]:hover {
-  background-color: #b46a00;
+  background-color: #D57F00;
 }
 
 /* --- Erfolgsnachricht --- */
