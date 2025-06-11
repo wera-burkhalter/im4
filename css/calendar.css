@@ -114,6 +114,9 @@
   width: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 20;
+
+  /* Wichtig für zentrierten Inhalt */
+  display: flex;
   justify-content: center;
   align-items: center;
 }
