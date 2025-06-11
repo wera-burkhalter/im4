@@ -111,7 +111,7 @@
 .modal-content h2,
 .modal-content p {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #000;
   margin: 0 0 1.5rem 0;
 }
@@ -151,11 +151,9 @@
   min-width: 100px;
 }
 
-.modal-content button::after {
-  content: url("../assets/icon-search-white.svg");
-  display: inline-block;
-  width: 16px;
-  height: 16px;
+/* Entfernt Lupe beim Modal mit ja/nein */
+.modal-buttons button::after {
+  content: none !important;
 }
 
 .modal-buttons {
@@ -172,6 +170,7 @@
   font-weight: 600;
   cursor: pointer;
   min-width: 100px;
+  display: inline-block;
 }
 
 .btn-ja {
