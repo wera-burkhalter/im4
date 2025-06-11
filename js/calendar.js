@@ -17,6 +17,10 @@ const confirmModal = document.getElementById("confirmModal");
 const confirmYes = document.getElementById("confirmYes");
 const confirmNo = document.getElementById("confirmNo");
 const abmeldenBtn = document.getElementById("abmeldenBtn");
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  return `${String(date.getDate()).padStart(2, '0')}.${String(date.getMonth() + 1).padStart(2, '0')}.${date.getFullYear()}`;
+}
 
 // ========================
 // 1. SESSIONDATEN HOLEN
@@ -102,7 +106,7 @@ function showEventPreview(date) {
   eventPreviewContainer.innerHTML = events.map(e => `
     <div class="event-preview" onclick="showEventDetail(${e.id})">
       <h3>${e.title}</h3>
-      <p class="event-meta">${e.date} | ${e.place}</p>
+      <p class="event-meta">${formatDate(e.date)} | ${e.place}</p>
       <div class="event-creator">
         <img src="${e.creator_image}" alt="${e.creator_name}">
         <span>${e.creator_name}</span>
