@@ -27,16 +27,18 @@
   padding: 0 0.5rem;
 }
 .calendar-grid {
-  row-gap: 0.6rem;  /* sorgt für Luft zwischen Zeilen */
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* ← das war das fehlende! */
+  row-gap: 0.6rem;
   justify-items: center;
 }
 
 
 .calendar-day {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1rem;
+  letter-spacing: 0.5px;
   text-align: center;
-  padding-bottom: 0.2rem;
 }
 .calendar-date,
 .event-day {
