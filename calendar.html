@@ -1,19 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalender</title>
   <link rel="stylesheet" href="css/mother.css">
   <link rel="stylesheet" href="css/calendar.css">
-  <title>Kalender</title>
-    
+</head>
+<body>
 
-<div class="profil-header">
-  <img id="profilbild" src="assets/standard_avatar.png" alt="Profilbild">
-</div>
+  <!-- Profilbild und Überschrift -->
+  <div class="profil-header">
+    <img id="profilbild" src="assets/standard_avatar.png" alt="Profilbild">
+  </div>
 
-<h1>KALENDER</h1>
+  <h1>KALENDER</h1>
 
   <!-- Kalenderbereich -->
   <div class="calendar-container">
@@ -22,12 +23,8 @@
       <span id="monthYear"></span>
       <button id="nextMonthBtn">→</button>
     </div>
-    <div class="calendar-grid" id="calendarDays">
-      <!-- Wochentage -->
-    </div>
-    <div class="calendar-grid" id="calendarDates">
-      <!-- Dynamisch generierte Tage -->
-    </div>
+    <div class="calendar-grid" id="calendarDays"></div>
+    <div class="calendar-grid" id="calendarDates"></div>
   </div>
 
   <!-- Event-Vorschau -->
@@ -50,27 +47,27 @@
     </div>
   </div>
 
-<!-- Bestätigungs-Popup -->
-<div id="confirmModal" class="modal">
-  <div class="modal-content">
-    <p id="confirmText">Bist du sicher, dass du dich abmelden willst?</p>
-    <div class="modal-buttons">
-      <button id="confirmYes" class="btn-ja">ja</button>
-      <button id="confirmNo" class="btn-nein">nein</button>
+  <!-- Bestätigungs-Popup -->
+  <div id="confirmModal" class="modal">
+    <div class="modal-content">
+      <p id="confirmText">Bist du sicher, dass du dich abmelden willst?</p>
+      <div class="modal-buttons">
+        <button id="confirmYes" class="btn-ja">ja</button>
+        <button id="confirmNo" class="btn-nein">nein</button>
+      </div>
     </div>
   </div>
-</div>
 
-<nav class="footer-menu">
-  <a href="events.html"><img src="assets/icon-events.png" alt="Events"></a>
-  <a href="calendar.html"  class="active-icon"><img src="assets/icon-calendar-blau.png" alt="Kalender"></a>
+  <!-- Footer-Menü -->
+  <nav class="footer-menu">
+    <a href="events.html"><img src="assets/icon-events.png" alt="Events"></a>
+    <a href="calendar.html" class="active-icon"><img src="assets/icon-calendar-blau.png" alt="Kalender"></a>
+    <a href="homescreen.html"><img src="assets/icon-home.png" alt="Home"></a>
+    <a href="invitations.html"><img src="assets/icon-invitations.png" alt="Einladungen"></a>
+    <a href="friends.html"><img src="assets/icon-friends.png" alt="Freunde"></a>
+  </nav>
 
-  <a href="homescreen.html"><img src="assets/icon-home.png" alt="Home"></a>
-
-  <a href="invitations.html"><img src="assets/icon-invitations.png" alt="Einladungen"></a>
-  <a href="friends.html"><img src="assets/icon-friends.png" alt="Freunde"></a>
-</nav>
-
-<script src="js/calendar.js"></script>
+  <script src="js/calendar.js"></script>
 </body>
 </html>
+
