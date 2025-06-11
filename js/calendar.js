@@ -17,6 +17,7 @@ const confirmModal = document.getElementById("confirmModal");
 const confirmYes = document.getElementById("confirmYes");
 const confirmNo = document.getElementById("confirmNo");
 const abmeldenBtn = document.getElementById("abmeldenBtn");
+
 function formatDate(dateString) {
   const date = new Date(dateString);
   return `${String(date.getDate()).padStart(2, '0')}.${String(date.getMonth() + 1).padStart(2, '0')}.${date.getFullYear()}`;
@@ -63,7 +64,7 @@ function renderCalendar() {
   const monthNames = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
   monthYearDisplay.textContent = `${monthNames[month]} ${year}`;
 
-  calendarDays.innerHTML = ["MO", "DI", "MI", "DO", "FR", "SA", "SO"].map(d => `<div>${d}</div>`).join("");
+  calendarDays.innerHTML = ["MO", "DI", "MI", "DO", "FR", "SA", "SO"].map(d => `<div class="calendar-day">${d}</div>`).join("");
   calendarDates.innerHTML = "";
 
   const offset = (firstDay + 6) % 7;
@@ -77,7 +78,7 @@ function renderCalendar() {
 
     const div = document.createElement("div");
     div.textContent = String(day).padStart(2, '0');
-    div.className = hasEvent ? "event-day" : "";
+    div.className = hasEvent ? "event-day calendar-date" : "calendar-date";
 
     if (hasEvent) {
       div.addEventListener("click", () => showEventPreview(dateStr));
@@ -93,16 +94,13 @@ function renderCalendar() {
 function showEventPreview(date) {
   const events = allEvents.filter(e => e.date === date);
 
-  // Alle markierten Tage zurücksetzen
   document.querySelectorAll(".event-day").forEach(d => d.classList.remove("selected-day"));
 
-  // Aktuelles ausgewähltes Datum optisch hervorheben
   const selectedDiv = [...calendarDates.children].find(div => {
     return div.textContent === date.slice(-2) && div.classList.contains("event-day");
   });
   if (selectedDiv) selectedDiv.classList.add("selected-day");
 
-  // Event-Vorschau anzeigen (wie im Figma)
   eventPreviewContainer.innerHTML = events.map(e => `
     <div class="event-preview" onclick="showEventDetail(${e.id})">
       <h3>${e.title}</h3>
@@ -114,7 +112,6 @@ function showEventPreview(date) {
     </div>
   `).join("");
 }
-
 
 // ========================
 // 5. EVENT-DETAIL ANZEIGEN
@@ -134,7 +131,7 @@ function showEventDetail(id) {
   abmeldenBtn.style.display = (event.creator_id != currentUserId) ? "block" : "none";
   abmeldenBtn.onclick = () => openUnsubscribePopup(id);
 
-  modal.style.display = "block";
+  modal.style.display = "flex";
 }
 
 closeModalBtn.onclick = () => modal.style.display = "none";
@@ -145,7 +142,7 @@ closeModalBtn.onclick = () => modal.style.display = "none";
 let currentEventToUnsubscribe = null;
 function openUnsubscribePopup(eventId) {
   currentEventToUnsubscribe = eventId;
-  confirmModal.style.display = "block";
+  confirmModal.style.display = "flex";
 }
 
 confirmNo.onclick = () => {
