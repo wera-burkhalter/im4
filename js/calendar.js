@@ -89,10 +89,20 @@ function renderCalendar() {
 function showEventPreview(date) {
   const events = allEvents.filter(e => e.date === date);
 
+  // Alle markierten Tage zurücksetzen
+  document.querySelectorAll(".event-day").forEach(d => d.classList.remove("selected-day"));
+
+  // Aktuelles ausgewähltes Datum optisch hervorheben
+  const selectedDiv = [...calendarDates.children].find(div => {
+    return div.textContent === date.slice(-2) && div.classList.contains("event-day");
+  });
+  if (selectedDiv) selectedDiv.classList.add("selected-day");
+
+  // Event-Vorschau anzeigen (wie im Figma)
   eventPreviewContainer.innerHTML = events.map(e => `
-    <div class="event-box" onclick="showEventDetail(${e.id})">
+    <div class="event-preview" onclick="showEventDetail(${e.id})">
       <h3>${e.title}</h3>
-      <p>${e.date} | ${e.place}</p>
+      <p class="event-meta">${e.date} | ${e.place}</p>
       <div class="event-creator">
         <img src="${e.creator_image}" alt="${e.creator_name}">
         <span>${e.creator_name}</span>
@@ -100,6 +110,7 @@ function showEventPreview(date) {
     </div>
   `).join("");
 }
+
 
 // ========================
 // 5. EVENT-DETAIL ANZEIGEN

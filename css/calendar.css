@@ -17,7 +17,13 @@
   font-size: 1.4rem;
   margin-bottom: 1rem;
 }
-
+.calendar-header button {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0.2rem;
+}
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -26,11 +32,12 @@
 
 .calendar-day {
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  text-align: center;
 }
 
 .calendar-date {
-  padding: 0.6rem 0;
+  padding: 0.85rem 0;
   border-radius: 50%;
   cursor: pointer;
   font-weight: bold;
@@ -38,10 +45,13 @@
 
 .event-day {
   border: 2px solid #4c7c2b;
-  color: #000;
+  border-radius: 50%;
+  padding: 0.6rem 0;
+  text-align: center;
+
 }
 
-.selected-day {
+.event-day.selected-day {
   background-color: #4c7c2b;
   color: white;
 }
