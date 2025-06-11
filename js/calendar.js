@@ -124,7 +124,7 @@ function showEventDetail(id) {
   if (!event) return;
 
   document.getElementById("detailTitle").textContent = event.title;
-  document.getElementById("detailDatePlace").textContent = `${event.date} | ${event.place}`;
+  document.getElementById("detailDatePlace").textContent = `${formatDate(event.date)} | ${event.place}`;
   document.getElementById("detailTime").textContent = event.time ? `${event.time} Uhr` : "";
   document.getElementById("detailImage").src = event.image;
   document.getElementById("detailDescription").textContent = event.description;
