@@ -264,3 +264,30 @@ html, body {
   border: 2px solid #002147;
   color: #002147;
 }
+
+.event-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.2rem;
+  gap: 1rem;
+}
+
+.event-footer .abmelden-button {
+  margin: 0;
+}
+
+.event-footer .event-creator {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.event-footer .event-creator img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
