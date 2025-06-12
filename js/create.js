@@ -31,6 +31,19 @@ document.getElementById("eventForm").addEventListener("submit", async (e) => {
         if (reply.status === "success") {
             document.getElementById("successMessage").style.display = "block";
             form.reset();
+
+            // Vorschau-Bild ausblenden & zurücksetzen
+            const preview = document.getElementById("previewImage");
+            if (preview) {
+                preview.style.display = "none";
+                preview.src = "";
+            }
+
+            const fileInput = document.getElementById("imageInput");
+            if (fileInput) {
+                fileInput.value = "";
+            }
+
         } else {
             alert("Fehler: " + reply.message);
         }
