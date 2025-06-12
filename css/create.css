@@ -166,6 +166,9 @@ form#eventForm button[type="submit"]:hover {
   border: 2px solid #003366;
   border-radius: 14px;
   margin-top: 0.5rem;
+  outline: none;
+  box-shadow: none;
+  border: 2px solid #003366;
 }
 
 .friend-results {
@@ -199,7 +202,7 @@ form#eventForm button[type="submit"]:hover {
 .selected-friend {
   display: flex;
   align-items: center;
-  background-color: #fff;
+  background-color: #fffff9;
   border: 2px solid #003366;
   border-radius: 999px;
   padding: 0.3rem 0.7rem;
@@ -210,6 +213,7 @@ form#eventForm button[type="submit"]:hover {
   width: 30px;
   height: 30px;
   border-radius: 50%;
+  object-fit: cover;
   margin-right: 0.5rem;
 }
 
