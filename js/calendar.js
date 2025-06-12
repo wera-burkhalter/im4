@@ -87,16 +87,20 @@ function showEventPreview(date) {
     div.textContent === date.slice(-2) && div.classList.contains("event-day"));
   if (selectedDiv) selectedDiv.classList.add("selected-day");
 
-  eventPreviewContainer.innerHTML = events.map(e => `
-    <div class="event-preview" onclick="showEventDetail(${e.id})">
-      <h3>${e.title}</h3>
-      <p class="event-meta">${formatDate(e.date)} | ${e.place}</p>
-      <div class="event-creator">
-        <img src="${e.creator_image}" alt="${e.creator_name}">
-        <span>${e.creator_name}</span>
+  eventPreviewContainer.innerHTML = events.map(e => {
+    const showCreatorInfo = e.creator_id != currentUserId;
+    return `
+      <div class="event-preview" onclick="showEventDetail(${e.id})">
+        <h3>${e.title}</h3>
+        <p class="event-meta">${formatDate(e.date)} | ${e.place}</p>
+        ${showCreatorInfo ? `
+          <div class="event-creator">
+            <img src="${e.creator_image}" alt="${e.creator_name}">
+            <span>${e.creator_name}</span>
+          </div>` : ``}
       </div>
-    </div>
-  `).join("");
+    `;
+  }).join("");
 }
 
 function showEventDetail(id) {
