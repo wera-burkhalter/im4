@@ -22,7 +22,7 @@ SELECT
   e.benutzer_id AS creator_id,
   b.firstName AS creator_firstName,
   b.surname AS creator_surname,
-  b.profilbild AS creator_profilbild
+  b.profilbild AS creator_image
 FROM events e
 JOIN event_has_benutzer ehb ON e.id = ehb.event_id
 JOIN benutzer b ON e.benutzer_id = b.id
@@ -37,7 +37,7 @@ $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // Ergänzen der vollständigen Felder für JS
 foreach ($events as &$event) {
     $event['creator_name'] = $event['creator_firstName'] . ' ' . $event['creator_surname'];
-    $event['creator_image'] = $event['creator_profilbild'] ? 'assets/uploads/' . $event['creator_profilbild'] : 'assets/standard_avatar.png';
+    $event['creator_image'] = $event['creator_image'] ? 'assets/uploads/' . $event['creator_image'] : 'assets/standard_avatar.png';
 }
 unset($event);
 
