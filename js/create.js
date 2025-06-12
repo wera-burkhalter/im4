@@ -3,7 +3,7 @@ document.getElementById("eventForm").addEventListener("submit", async (e) => {
 
     const form = e.target;
 
-    // ✨ Prüfe HTML5-Validierung (zeigt Fehler pro Feld automatisch an)
+    // Prüfe HTML5-Validierung (zeigt Fehler pro Feld automatisch an)
     if (!form.reportValidity()) {
         return; // Stoppt den Submit, zeigt aber die Fehler im Browser an den Feldern
     }
@@ -77,3 +77,24 @@ document.getElementById("imageInput").addEventListener("change", function () {
         preview.style.display = "block";
     }
 });
+
+// Freundesliste laden und in das Select-Feld einfügen
+async function loadFriends() {
+    try {
+        const res = await fetch("api/showFriends.php");
+        const friends = await res.json();
+        const select = document.getElementById("invitedFriends");
+
+        friends.forEach(friend => {
+            const option = document.createElement("option");
+            option.value = friend.id;
+            option.textContent = `${friend.firstName} ${friend.surname}`;
+            select.appendChild(option);
+        });
+    } catch (err) {
+        console.error("Fehler beim Laden der Freundesliste:", err);
+    }
+}
+
+// Direkt beim Laden der Seite aufrufen
+loadFriends();
