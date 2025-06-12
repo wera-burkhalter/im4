@@ -86,7 +86,7 @@ function confirmDelete(eventId) {
 
   modal.querySelector(".btn-delete").onclick = async () => {
     try {
-      const res = await fetch("api/delete_event.php?id=" + eventId, { method: "DELETE" });
+      const res = await fetch("api/deleteEvent.php?id=" + eventId, { method: "DELETE" });
       const reply = await res.json();
       if (reply.status === "success") {
         modal.innerHTML = `
