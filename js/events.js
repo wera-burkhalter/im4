@@ -106,7 +106,7 @@ function confirmDelete(eventId) {
 
 async function openDetailsModal(eventId) {
   try {
-    const res = await fetch("api/event_details.php?id=" + eventId);
+    const res = await fetch("api/getEventDetails.php?id=" + eventId);
     const data = await res.json();
 
     const modal = document.createElement("div");
