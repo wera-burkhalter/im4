@@ -1,0 +1,200 @@
+/* === Layout-Grundstruktur === */
+body {
+  background-color: #fffff9;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.profil-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+
+.profil-header img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+/* === Event-Karten === */
+.event-list {
+  padding: 0 1rem;
+}
+
+.invite-card {
+  background-color: #fff;
+  border: 3px solid #003366;
+  border-radius: 16px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.invite-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.invite-card .meta {
+  font-size: 0.95rem;
+  margin: 0.4rem 0;
+  color: #333;
+}
+
+.invite-card .organizer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  margin-top: 0.3rem;
+}
+
+.invite-card .organizer img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.invite-card .deadline {
+  text-align: right;
+  font-weight: bold;
+  color: #003366;
+}
+
+/* === Modal für Detailansicht === */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fffff9;
+  border: 4px solid #003366;
+  border-radius: 20px;
+  padding: 1.5rem;
+  max-width: 90%;
+  width: 400px;
+  position: relative;
+}
+
+.modal .close {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+
+.modal-content img.cover {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+}
+
+.modal-content .info {
+  margin-bottom: 1rem;
+}
+
+.modal-content .avatars {
+  display: flex;
+  margin-top: 0.5rem;
+  gap: 0.3rem;
+}
+
+.modal-content .avatars img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+/* === Antwort-Buttons === */
+.response-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.2rem;
+}
+
+.response-buttons button {
+  flex: 1;
+  margin: 0 0.3rem;
+  font-weight: bold;
+  padding: 0.6rem 0.5rem;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.response-buttons .yes {
+  background-color: #1c871c;
+}
+
+.response-buttons .maybe {
+  background-color: #005c9e;
+}
+
+.response-buttons .no {
+  background-color: #b94f00;
+}
+
+/* === Bestätigungsmodale === */
+.confirm-modal .modal-content,
+.success-modal .modal-content {
+  text-align: center;
+}
+
+.confirm-modal button,
+.success-modal button {
+  margin-top: 1rem;
+}
+
+.btn-delete, .btn-cancel {
+  padding: 0.5rem 1.2rem;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0.4rem;
+}
+
+.btn-delete {
+  background-color: #D57F00;
+  color: white;
+  border: none;
+}
+
+.btn-cancel {
+  border: 2px solid #003366;
+  background-color: white;
+  color: #003366;
+}
+
+/* Versteckt */
+.hidden {
+  display: none;
+}
