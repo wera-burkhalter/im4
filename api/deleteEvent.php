@@ -9,7 +9,9 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-$eventId = $_POST['event_id'] ?? null;
+// Event-ID aus JSON-Body holen
+$input = json_decode(file_get_contents("php://input"), true);
+$eventId = $input['event_id'] ?? null;
 
 if (!$eventId) {
     echo json_encode(['status' => "error", "message" => "Keine Event-ID übergeben"]);

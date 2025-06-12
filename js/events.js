@@ -85,23 +85,31 @@ function confirmDelete(eventId) {
   modal.querySelector(".btn-cancel").onclick = () => modal.remove();
 
   modal.querySelector(".btn-delete").onclick = async () => {
-    try {
-      const res = await fetch("api/deleteEvent.php?id=" + eventId, { method: "DELETE" });
-      const reply = await res.json();
-      if (reply.status === "success") {
-        modal.innerHTML = `
-          <div class="modal-content">
-            <p>Du hast das Event erfolgreich abgesagt.<br>Deine eingeladenen Freunde werden darüber informiert.</p>
-          </div>
-        `;
-        setTimeout(() => window.location.reload(), 2000);
-      } else {
-        alert("Fehler: " + reply.message);
-      }
-    } catch (err) {
-      console.error("Fehler beim Löschen:", err);
+  try {
+    const res = await fetch("api/deleteEvent.php", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ event_id: eventId })
+    });
+
+    const reply = await res.json();
+    if (reply.status === "success") {
+      modal.innerHTML = `
+        <div class="modal-content">
+          <p>Du hast das Event erfolgreich abgesagt.<br>Deine eingeladenen Freunde werden darüber informiert.</p>
+        </div>
+      `;
+      setTimeout(() => window.location.reload(), 2000);
+    } else {
+      alert("Fehler: " + reply.message);
     }
-  };
+  } catch (err) {
+    console.error("Fehler beim Löschen:", err);
+  }
+};
+
 }
 
 async function openDetailsModal(eventId) {
