@@ -8,7 +8,17 @@ document.getElementById("eventForm").addEventListener("submit", async (e) => {
         return; // Stoppt den Submit, zeigt aber die Fehler im Browser an den Feldern
     }
 
-    const formData = new FormData(form);
+
+    // Datum-Validierung: Rückmeldefrist darf nicht nach dem Event-Datum liegen
+    const dateValue = new Date(form.date.value);
+    const deadlineValue = new Date(form.deadline.value);
+
+    if (deadlineValue > dateValue) {
+        alert("Die Rückmeldefrist darf nicht nach dem Event-Datum liegen.");
+        return;
+    }
+
+        const formData = new FormData(form);
 
     try {
         const res = await fetch("api/events.php", {
@@ -29,6 +39,12 @@ document.getElementById("eventForm").addEventListener("submit", async (e) => {
         console.error("Fehler beim Speichern:", error);
         alert("Fehler beim Speichern.");
     }
+});
+
+// Rückmeldefrist darf nur bis zum Event-Datum wählbar sein
+document.getElementById("eventForm").date.addEventListener("change", function () {
+    const deadlineInput = document.getElementById("eventForm").deadline;
+    deadlineInput.max = this.value;
 });
 
 // Bild-Vorschau nach Auswahl
