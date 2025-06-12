@@ -82,21 +82,9 @@ form#eventForm button[type="submit"] {
   transition: background-color 0.3s ease;
 }
 
-form#eventForm button[type="submit"]:hover {
-  background-color: #D57F00;
-}
 
-/* --- Erfolgsnachricht --- */
-#successMessage {
-  margin-top: 1rem;
-  text-align: center;
-  font-weight: bold;
-  color: green;
-  display: none;
-}
-
-/* --- Kamera-Icon (wenn du es über CSS einbinden willst) --- */
-.kamera-icon {
+/* --- BRUCHI GLOUBS GAR NID Kamera-Icon (wenn du es über CSS einbinden willst) --- */
+/*.kamera-icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,10 +94,10 @@ form#eventForm button[type="submit"]:hover {
 .kamera-icon img {
   width: 60px;
   height: 60px;
-}
+}*/
 
-/* --- Freunde-Avatare (Platzhalter für später) --- */
-.freunde-liste {
+/* ---  BRUCHI GLOUBS GAR NID Freunde-Avatare (Platzhalter für später) --- */
+/*.freunde-liste {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -121,7 +109,7 @@ form#eventForm button[type="submit"]:hover {
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
-}
+}*/
 
 /* --- Mobile Optimierung --- */
 @media (max-width: 480px) {
