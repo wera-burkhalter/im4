@@ -9,10 +9,16 @@ document.getElementById("eventForm").addEventListener("submit", async (e) => {
     }
 
     // Freunde-Auswahl prüfen (mind. 1 Person)
+    const friendErrorBox = document.getElementById("friendError");
+
     if (selectedFriends.size === 0) {
-        alert("Bitte lade mindestens eine Person ein.");
+        friendErrorBox.textContent = "Bitte lade mindestens eine Person ein.";
+        friendErrorBox.style.display = "block";
+        searchInput.scrollIntoView({ behavior: "smooth", block: "center" });
         return;
-    }
+    } else {
+    friendErrorBox.style.display = "none";
+}
 
     // Datum-Validierung: Rückmeldefrist darf nicht nach dem Event-Datum liegen
     const dateValue = new Date(form.date.value);

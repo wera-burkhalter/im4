@@ -230,3 +230,26 @@ form#eventForm button[type="submit"]:hover {
   font-weight: bold;
   color: #900;
 }
+
+/* --- Fehleranzeige Friends ergänzen --- */
+.field-error {
+  margin-top: 0.3rem;
+  color: #a80000;
+  font-size: 0.9rem;
+  background-color: #fff3cd;
+  border: 1px solid #f5c2c7;
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.field-error::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 20px;
+  border-width: 0 8px 8px 8px;
+  border-style: solid;
+  border-color: transparent transparent #fff3cd transparent;
+}
