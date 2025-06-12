@@ -112,15 +112,22 @@ function showEventDetail(id) {
   document.getElementById("detailTime").textContent = event.time ? `${event.time} Uhr` : "";
   document.getElementById("detailImage").src = event.image;
   document.getElementById("detailDescription").textContent = event.description;
-  document.getElementById("creatorImage").src = event.creator_image;
-  document.getElementById("creatorName").textContent = event.creator_name;
 
+  // Creator anzeigen nur wenn nicht selbst erstellt
+  if (event.creator_id != currentUserId) {
+    document.getElementById("creatorImage").src = event.creator_image;
+    document.getElementById("creatorName").textContent = event.creator_name;
+    document.querySelector(".event-creator").style.display = "flex";
+  } else {
+    document.querySelector(".event-creator").style.display = "none";
+  }
+
+  // Abmelden-Button nur wenn nicht der Ersteller
   abmeldenBtn.style.display = (event.creator_id != currentUserId) ? "block" : "none";
   abmeldenBtn.onclick = () => openUnsubscribePopup(id);
 
   modal.style.display = "flex";
 }
-
 closeModalBtn.onclick = () => modal.style.display = "none";
 
 let currentEventToUnsubscribe = null;
