@@ -29,7 +29,7 @@ if (!$event) {
 // Eingeladene Freunde + Status
 $stmt = $pdo->prepare("
     SELECT 
-        b.id, b.firstName, b.surname, b.profilbild, ehb.status
+        b.firstName, b.surname, b.profilbild, ehb.status
     FROM event_has_benutzer ehb
     JOIN benutzer b ON b.id = ehb.benutzer_id
     WHERE ehb.event_id = ?
@@ -37,9 +37,29 @@ $stmt = $pdo->prepare("
 $stmt->execute([$eventId]);
 $guests = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Antworte mit allen Daten
+// Gäste nach Status gruppieren
+$eingeladeneGruppiert = [
+    'angenommen' => [],
+    'abgelehnt' => [],
+    'vielleicht' => [],
+    'offen' => []
+];
+
+foreach ($guests as $guest) {
+    $status = strtolower($guest['status']);
+    if (!isset($eingeladeneGruppiert[$status])) {
+        $eingeladeneGruppiert[$status] = [];
+    }
+
+    $eingeladeneGruppiert[$status][] = [
+        "name" => $guest['firstName'] . " " . $guest['surname'],
+        "profilbild" => $guest['profilbild'] ?: "assets/standard_avatar.png"
+    ];
+}
+
+// Rückgabe
 echo json_encode([
     'status' => "success",
-    'event' => $event,
-    'guests' => $guests
+    'title' => $event['title'],
+    'eingeladene' => $eingeladeneGruppiert
 ]);
