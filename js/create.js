@@ -166,3 +166,10 @@ searchInput.addEventListener("input", () => {
 });
 
 loadFriends();
+
+// Event-Datum: Mindestwert = heute
+const dateInput = document.querySelector('input[name="date"]');
+const today = new Date().toISOString().split("T")[0];
+dateInput.min = today;
+const deadlineInput = document.querySelector('input[name="deadline"]');
+deadlineInput.min = today;
