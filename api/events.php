@@ -69,4 +69,15 @@ $stmt->execute([
     $_POST['deadline']
 ]);
 
+$eventId = $pdo->lastInsertId(); // nachdem das Event gespeichert wurde
+
+
+/* Freunde in events_has_benutzer speichern*/
+if (!empty($_POST['invitedFriends']) && is_array($_POST['invitedFriends'])) {
+    foreach ($_POST['invitedFriends'] as $friendId) {
+        $stmt = $pdo->prepare("INSERT INTO event_has_benutzer (event_id, benutzer_id, status) VALUES (?, ?, 'offen')");
+        $stmt->execute([$eventId, $friendId]);
+    }
+}
+
 echo json_encode(["status" => "success"]);

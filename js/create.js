@@ -47,6 +47,13 @@ document.getElementById("eventForm").addEventListener("submit", async (e) => {
                 fileInput.value = "";
             }
 
+            // Freundeliste zurücksetzen
+            selectedFriends.clear();
+            selectedFriendsContainer.innerHTML = "";
+            searchInput.value = "";
+            resultsBox.innerHTML = "";
+            resultsBox.style.display = "none";
+
             // Weiterleitung nach 2 Sekunden
             setTimeout(() => {
                 window.location.href = "events.html";
@@ -91,7 +98,6 @@ async function loadFriends() {
         const res = await fetch("api/showFriends.php");
         const friends = await res.json();
         allFriends = friends;
-        updateFriendResults("");
     } catch (err) {
         console.error("Fehler beim Laden der Freundesliste:", err);
     }
@@ -99,10 +105,26 @@ async function loadFriends() {
 
 function updateFriendResults(query) {
     resultsBox.innerHTML = "";
-    const filtered = allFriends.filter(friend =>
-        `${friend.firstName} ${friend.surname}`.toLowerCase().includes(query.toLowerCase()) &&
-        !selectedFriends.has(friend.id)
-    );
+
+    if (!query.trim()) {
+        resultsBox.style.display = "none";
+        return;
+    }
+
+    const filtered = allFriends.filter(friend => {
+        const first = friend.firstName.toLowerCase();
+        const last = friend.surname.toLowerCase();
+        const q = query.toLowerCase();
+
+        return (first.startsWith(q) || last.startsWith(q)) && !selectedFriends.has(friend.id);
+    });
+
+    if (filtered.length === 0) {
+        resultsBox.style.display = "none";
+        return;
+    }
+
+    resultsBox.style.display = "block";
 
     filtered.forEach(friend => {
         const div = document.createElement("div");
@@ -110,6 +132,7 @@ function updateFriendResults(query) {
         div.addEventListener("click", () => {
             addSelectedFriend(friend);
             resultsBox.innerHTML = "";
+            resultsBox.style.display = "none";
             searchInput.value = "";
         });
         resultsBox.appendChild(div);
