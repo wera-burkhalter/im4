@@ -113,16 +113,16 @@ function showEventDetail(id) {
   document.getElementById("detailImage").src = event.image;
   document.getElementById("detailDescription").textContent = event.description;
 
-  // Creator anzeigen nur wenn nicht selbst erstellt
+  // Nur im Detail-Popup den Ersteller ggf. ausblenden
+  const creatorSection = document.getElementById("detailCreator");
   if (event.creator_id != currentUserId) {
     document.getElementById("creatorImage").src = event.creator_image;
     document.getElementById("creatorName").textContent = event.creator_name;
-    document.querySelector(".event-creator").style.display = "flex";
+    creatorSection.style.display = "flex";
   } else {
-    document.querySelector(".event-creator").style.display = "none";
+    creatorSection.style.display = "none";
   }
 
-  // Abmelden-Button nur wenn nicht der Ersteller
   abmeldenBtn.style.display = (event.creator_id != currentUserId) ? "block" : "none";
   abmeldenBtn.onclick = () => openUnsubscribePopup(id);
 
