@@ -21,7 +21,6 @@ h1 {
   display: inline-block;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  padding-top: 10rem;
 }
 
 .icon-wrapper:hover {
