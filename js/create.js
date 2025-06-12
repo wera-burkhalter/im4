@@ -3,10 +3,22 @@ document.getElementById("eventForm").addEventListener("submit", async (e) => {
 
     const form = e.target;
 
+    // Validierung der Pflichtfelder
+    if (
+    !validateField("title", "Bitte gib einen Titel ein.") ||
+    !validateField("description", "Bitte gib eine Beschreibung ein.") ||
+    !validateField("place", "Bitte gib einen Ort ein.") ||
+    !validateField("date", "Bitte wähle ein Datum.") ||
+    !validateField("deadline", "Bitte gib eine Rückmeldefrist an.")
+) {
+    return;
+}
+
     // Prüfe HTML5-Validierung (zeigt Fehler pro Feld automatisch an)
     if (!form.reportValidity()) {
         return; // Stoppt den Submit, zeigt aber die Fehler im Browser an den Feldern
     }
+
 
     // Freunde-Auswahl prüfen (mind. 1 Person)
     const friendErrorBox = document.getElementById("friendError");
@@ -183,6 +195,21 @@ searchInput.addEventListener("input", () => {
 });
 
 loadFriends();
+
+// Validierung der Pflichtfelder
+function validateField(id, message) {
+    const input = document.getElementById(id);
+    const errorBox = document.getElementById(id + "Error");
+    if (!input.value.trim()) {
+        errorBox.textContent = message;
+        errorBox.style.display = "block";
+        input.scrollIntoView({ behavior: "smooth", block: "center" });
+        return false;
+    } else {
+        errorBox.style.display = "none";
+        return true;
+    }
+}
 
 // Event-Datum: Mindestwert = heute
 const dateInput = document.querySelector('input[name="date"]');

@@ -231,7 +231,7 @@ form#eventForm button[type="submit"]:hover {
   color: #900;
 }
 
-/* --- Fehleranzeige Friends ergänzen --- */
+/* --- Fehleranzeigen--- */
 .field-error {
   margin-top: 0.3rem;
   color: #a80000;

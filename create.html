@@ -24,19 +24,23 @@
 
         <!--Titel-->
         <label>*Titel</label>
-        <input type="text" name="title" required title="Bitte gib einen Titel ein"/>
+        <input type="text" name="title"/>
+        <div class="field-error" id="titleError" style="display: none;"></div>
 
         <!--Beschreibung-->
         <label>*Beschreibung</label>
-        <textarea name="description" required title="Bitte gibt eine Beschreibung ein"></textarea>
+        <textarea name="description"></textarea>
+        <div class="field-error" id="descriptionError" style="display: none;"></div>
 
         <!--Datum-->
         <label>*Datum</label>
-        <input type="date" name="date" required title="Bitte gib ein Datum an"/>
+        <input type="date" name="date"/>
+        <div class="field-error" id="dateError" style="display: none;"></div>
 
         <!--Ort-->
         <label>*Ort</label>
-        <input type="text" name="place" required title="Bitte gib einen Ort ein"/>
+        <input type="text" name="place"/>
+        <div class="field-error" id="placeError" style="display: none;"></div>
 
         <!--Uhrzeit-->
         <label>Uhrzeit</label>
@@ -44,7 +48,8 @@
 
         <!--Rückmeldefrist-->
         <label>*Rückmeldefrist</label>
-        <input type="date" name="deadline" required title="Bitte gib eine Rückmeldefrist an"/>
+        <input type="date" name="deadline"/>
+        <div class="field-error" id="deadlineError" style="display: none;"></div>
 
         <!--Friends-->
         <label>*Freunde einladen</label>
