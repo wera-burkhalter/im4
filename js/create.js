@@ -29,7 +29,10 @@ document.getElementById("eventForm").addEventListener("submit", async (e) => {
         const reply = await res.json();
 
         if (reply.status === "success") {
-            document.getElementById("successMessage").style.display = "block";
+            const popup = document.getElementById("successPopup");
+            popup.classList.add("show");
+            popup.style.display = "block";
+
             form.reset();
 
             // Vorschau-Bild ausblenden & zurücksetzen
@@ -43,6 +46,11 @@ document.getElementById("eventForm").addEventListener("submit", async (e) => {
             if (fileInput) {
                 fileInput.value = "";
             }
+
+            // Weiterleitung nach 2 Sekunden
+            setTimeout(() => {
+                window.location.href = "events.html";
+            }, 2000);
 
         } else {
             alert("Fehler: " + reply.message);
