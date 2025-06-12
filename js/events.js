@@ -21,7 +21,7 @@ async function loadEvents() {
   document.body.insertBefore(container, document.querySelector("nav"));
 
   try {
-    const res = await fetch("api/my_events.php");
+    const res = await fetch("api/myEvents.php");
     const events = await res.json();
 
     events.forEach(event => {
