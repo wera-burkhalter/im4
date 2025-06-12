@@ -170,6 +170,12 @@ function addSelectedFriend(friend) {
     });
 
     selectedFriendsContainer.appendChild(wrapper);
+
+    // Fehlermeldung ausblenden, sobald jemand ausgewählt wurde
+    const friendErrorBox = document.getElementById("friendError");
+    if (friendErrorBox) {
+        friendErrorBox.style.display = "none";
+    }
 }
 
 searchInput.addEventListener("input", () => {
