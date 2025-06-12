@@ -23,3 +23,152 @@
 .main-button:hover {
   background-color: #b6761f;
 }
+
+/* ==== Event-Boxen ==== */
+.event-list {
+  padding: 0 1rem;
+}
+
+.event-card {
+  background-color: #fffff9;
+  border: 3px solid #003366;
+  border-radius: 20px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  position: relative;
+  cursor: pointer;
+}
+
+.event-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.event-card .meta {
+  font-size: 0.95rem;
+  margin-top: 0.4rem;
+  color: #333;
+}
+
+.event-card .angefragt {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  gap: 0.4rem;
+}
+
+.avatars {
+  display: flex;
+  align-items: center;
+}
+
+.avatars img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: -10px;
+  border: 2px solid white;
+}
+
+/* +X Zusatz */
+.plus-count {
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+/* Löschen-Button (X) */
+.event-card .delete {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #111;
+}
+
+/* ==== Modal Allgemein ==== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: #fffff9;
+  border: 4px solid #003366;
+  border-radius: 20px;
+  padding: 1.5rem;
+  max-width: 90%;
+  width: 400px;
+  position: relative;
+}
+
+.modal .close {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Buttons */
+.btn-delete {
+  background-color: #D57F00;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  border: 2px solid #003366;
+  background-color: white;
+  color: #003366;
+  padding: 0.5rem 1.2rem;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Status-Listen */
+.status-group {
+  margin-top: 1rem;
+}
+
+.status-group h4 {
+  margin-bottom: 0.4rem;
+  color: #003366;
+}
+
+.status-group .person {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.status-group .person img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Versteckt */
+.hidden {
+  display: none;
+}

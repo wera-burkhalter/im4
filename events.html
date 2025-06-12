@@ -20,6 +20,28 @@
   <a href="create.html" class="main-button">erstellen</a>
 </div>
 
+<!-- Events-Anzeige -->
+<!-- Container für alle Events -->
+  <div id="eventsList" class="event-list"></div>
+
+  <!-- Detailansicht Modal -->
+  <div id="eventDetailModal" class="modal hidden">
+    <div class="modal-content">
+      <span id="detailClose" class="close">&times;</span>
+      <h3 id="detailTitle"></h3>
+      <div id="statusLists"></div>
+    </div>
+  </div>
+
+  <!-- Löschen-Bestätigung Modal -->
+  <div id="deleteConfirmModal" class="modal hidden">
+    <div class="modal-content">
+      <p>Bist du sicher, dass du dieses Event absagen willst?</p>
+      <button id="confirmDelete" class="btn-delete">ja</button>
+      <button id="cancelDelete" class="btn-cancel">nein</button>
+    </div>
+  </div>
+
 
 
 <!--Menu-Bar-->
