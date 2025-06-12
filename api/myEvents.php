@@ -1,5 +1,6 @@
-// alle Events des eingeloggten Benutzers laden
 <?php
+// alle Events des eingeloggten Benutzers laden
+
 session_start();
 require_once(__DIR__ . '/../config.php');
 header('Content-Type: application/json');
