@@ -9,7 +9,7 @@ if (!$userId) {
     exit;
 }
 
-// Nur Events, bei denen der eingeloggte User zugesagt hat
+// Nur Events mit Status "angenommen" für diesen Benutzer
 $sql = "
 SELECT 
   e.id,
@@ -22,7 +22,7 @@ SELECT
   e.benutzer_id AS creator_id,
   b.firstName AS creator_firstName,
   b.surname AS creator_surname,
-  b.profilbild AS creator_image
+  b.profilbild AS creator_profilbild
 FROM events e
 JOIN event_has_benutzer ehb ON e.id = ehb.event_id
 JOIN benutzer b ON e.benutzer_id = b.id
@@ -34,10 +34,12 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute([':uid' => $userId]);
 $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Ergänzen der vollständigen Felder für JS
+// Ergänzungen für JS
 foreach ($events as &$event) {
     $event['creator_name'] = $event['creator_firstName'] . ' ' . $event['creator_surname'];
-    $event['creator_image'] = $event['creator_image'] ? 'assets/uploads/' . $event['creator_image'] : 'assets/standard_avatar.png';
+    $event['creator_image'] = !empty($event['creator_profilbild'])
+        ? 'assets/uploads/' . $event['creator_profilbild']
+        : 'assets/standard_avatar.png';
 }
 unset($event);
 

@@ -1,4 +1,3 @@
-// calendar.js
 console.log("calendar.js geladen");
 
 let currentDate = new Date();
@@ -23,9 +22,7 @@ function formatDate(dateString) {
   return `${String(date.getDate()).padStart(2, '0')}.${String(date.getMonth() + 1).padStart(2, '0')}.${date.getFullYear()}`;
 }
 
-// ========================
-// 1. SESSIONDATEN HOLEN
-// ========================
+// Session prüfen und Events laden
 fetch("api/protected.php")
   .then(res => res.json())
   .then(data => {
@@ -40,9 +37,6 @@ fetch("api/protected.php")
     }
   });
 
-// ========================
-// 2. EVENTDATEN LADEN
-// ========================
 function loadEvents() {
   fetch("api/calendar.php")
     .then(res => res.json())
@@ -52,9 +46,6 @@ function loadEvents() {
     });
 }
 
-// ========================
-// 3. KALENDER RENDERING
-// ========================
 function renderCalendar() {
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
@@ -88,17 +79,12 @@ function renderCalendar() {
   }
 }
 
-// ========================
-// 4. VORSCHAU ANZEIGEN
-// ========================
 function showEventPreview(date) {
   const events = allEvents.filter(e => e.date === date);
 
   document.querySelectorAll(".event-day").forEach(d => d.classList.remove("selected-day"));
-
-  const selectedDiv = [...calendarDates.children].find(div => {
-    return div.textContent === date.slice(-2) && div.classList.contains("event-day");
-  });
+  const selectedDiv = [...calendarDates.children].find(div =>
+    div.textContent === date.slice(-2) && div.classList.contains("event-day"));
   if (selectedDiv) selectedDiv.classList.add("selected-day");
 
   eventPreviewContainer.innerHTML = events.map(e => `
@@ -113,9 +99,6 @@ function showEventPreview(date) {
   `).join("");
 }
 
-// ========================
-// 5. EVENT-DETAIL ANZEIGEN
-// ========================
 function showEventDetail(id) {
   const event = allEvents.find(e => e.id == id);
   if (!event) return;
@@ -136,9 +119,6 @@ function showEventDetail(id) {
 
 closeModalBtn.onclick = () => modal.style.display = "none";
 
-// ========================
-// 6. ABMELDEN
-// ========================
 let currentEventToUnsubscribe = null;
 function openUnsubscribePopup(eventId) {
   currentEventToUnsubscribe = eventId;
