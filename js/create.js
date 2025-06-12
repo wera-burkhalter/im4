@@ -8,6 +8,11 @@ document.getElementById("eventForm").addEventListener("submit", async (e) => {
         return; // Stoppt den Submit, zeigt aber die Fehler im Browser an den Feldern
     }
 
+    // Freunde-Auswahl prüfen (mind. 1 Person)
+    if (selectedFriends.size === 0) {
+        alert("Bitte lade mindestens eine Person ein.");
+        return;
+    }
 
     // Datum-Validierung: Rückmeldefrist darf nicht nach dem Event-Datum liegen
     const dateValue = new Date(form.date.value);
