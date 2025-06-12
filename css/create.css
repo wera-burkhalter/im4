@@ -82,35 +82,6 @@ form#eventForm button[type="submit"] {
   transition: background-color 0.3s ease;
 }
 
-
-/* --- BRUCHI GLOUBS GAR NID Kamera-Icon (wenn du es über CSS einbinden willst) --- */
-/*.kamera-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.kamera-icon img {
-  width: 60px;
-  height: 60px;
-}*/
-
-/* ---  BRUCHI GLOUBS GAR NID Freunde-Avatare (Platzhalter für später) --- */
-/*.freunde-liste {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.freunde-liste img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-}*/
-
 /* --- Mobile Optimierung --- */
 @media (max-width: 480px) {
   form#eventForm {
