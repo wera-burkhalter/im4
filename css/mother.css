@@ -2,7 +2,7 @@ html, body {
   height: auto;
   min-height: 100vh;
   margin: 0;
-  padding: 0;
+  padding: 0 0 120px 0; /* 👈 hier */
   font-family: poppins, sans-serif;
   overflow-y: auto;
   background-color: #fffff9;

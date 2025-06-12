@@ -9,7 +9,9 @@ if (!$userId) {
     exit;
 }
 
-// Nur Events mit Status "angenommen" für diesen Benutzer
+// Events laden, bei denen:
+// - der Benutzer zugesagt hat (status = 'angenommen') ODER
+// - der Benutzer selbst der Ersteller ist
 $sql = "
 SELECT 
   e.id,
@@ -22,11 +24,14 @@ SELECT
   e.benutzer_id AS creator_id,
   b.firstName AS creator_firstName,
   b.surname AS creator_surname,
-  b.profilbild AS creator_profilbild
+  b.profilbild AS creator_profilbild,
+  ehb.status
 FROM events e
-JOIN event_has_benutzer ehb ON e.id = ehb.event_id
+LEFT JOIN event_has_benutzer ehb ON e.id = ehb.event_id AND ehb.benutzer_id = :uid
 JOIN benutzer b ON e.benutzer_id = b.id
-WHERE ehb.benutzer_id = :uid AND ehb.status = 'angenommen'
+WHERE 
+  (ehb.status = 'angenommen' AND ehb.benutzer_id = :uid)
+  OR e.benutzer_id = :uid
 ORDER BY e.date ASC
 ";
 
@@ -34,7 +39,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute([':uid' => $userId]);
 $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Ergänzungen für JS
+// Zusätzliche Felder für die Anzeige vorbereiten
 foreach ($events as &$event) {
     $event['creator_name'] = $event['creator_firstName'] . ' ' . $event['creator_surname'];
     $event['creator_image'] = !empty($event['creator_profilbild'])

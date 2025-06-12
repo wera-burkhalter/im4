@@ -87,16 +87,20 @@ function showEventPreview(date) {
     div.textContent === date.slice(-2) && div.classList.contains("event-day"));
   if (selectedDiv) selectedDiv.classList.add("selected-day");
 
-  eventPreviewContainer.innerHTML = events.map(e => `
-    <div class="event-preview" onclick="showEventDetail(${e.id})">
-      <h3>${e.title}</h3>
-      <p class="event-meta">${formatDate(e.date)} | ${e.place}</p>
-      <div class="event-creator">
-        <img src="${e.creator_image}" alt="${e.creator_name}">
-        <span>${e.creator_name}</span>
+  eventPreviewContainer.innerHTML = events.map(e => {
+    const showCreatorInfo = e.creator_id != currentUserId;
+    return `
+      <div class="event-preview" onclick="showEventDetail(${e.id})">
+        <h3>${e.title}</h3>
+        <p class="event-meta">${formatDate(e.date)} | ${e.place}</p>
+        ${showCreatorInfo ? `
+          <div class="event-creator">
+            <img src="${e.creator_image}" alt="${e.creator_name}">
+            <span>${e.creator_name}</span>
+          </div>` : ``}
       </div>
-    </div>
-  `).join("");
+    `;
+  }).join("");
 }
 
 function showEventDetail(id) {
@@ -108,15 +112,22 @@ function showEventDetail(id) {
   document.getElementById("detailTime").textContent = event.time ? `${event.time} Uhr` : "";
   document.getElementById("detailImage").src = event.image;
   document.getElementById("detailDescription").textContent = event.description;
-  document.getElementById("creatorImage").src = event.creator_image;
-  document.getElementById("creatorName").textContent = event.creator_name;
+
+  // Nur im Detail-Popup den Ersteller ggf. ausblenden
+  const creatorSection = document.getElementById("detailCreator");
+  if (event.creator_id != currentUserId) {
+    document.getElementById("creatorImage").src = event.creator_image;
+    document.getElementById("creatorName").textContent = event.creator_name;
+    creatorSection.style.display = "flex";
+  } else {
+    creatorSection.style.display = "none";
+  }
 
   abmeldenBtn.style.display = (event.creator_id != currentUserId) ? "block" : "none";
   abmeldenBtn.onclick = () => openUnsubscribePopup(id);
 
   modal.style.display = "flex";
 }
-
 closeModalBtn.onclick = () => modal.style.display = "none";
 
 let currentEventToUnsubscribe = null;
