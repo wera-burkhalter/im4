@@ -167,10 +167,6 @@ form#eventForm button[type="submit"]:hover {
   border-radius: 14px;
   margin-top: 0.5rem;
 }
-#friendSearch:focus {
-  outline: none;
-  box-shadow: none;
-}
 
 .friend-results {
   position: absolute;
