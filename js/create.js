@@ -79,22 +79,67 @@ document.getElementById("imageInput").addEventListener("change", function () {
 });
 
 // Freundesliste laden und in das Select-Feld einfügen
+const selectedFriends = new Map();
+const selectedFriendsContainer = document.getElementById("selectedFriends");
+const searchInput = document.getElementById("friendSearch");
+const resultsBox = document.getElementById("friendResults");
+
+let allFriends = [];
+
 async function loadFriends() {
     try {
         const res = await fetch("api/showFriends.php");
         const friends = await res.json();
-        const select = document.getElementById("invitedFriends");
-
-        friends.forEach(friend => {
-            const option = document.createElement("option");
-            option.value = friend.id;
-            option.textContent = `${friend.firstName} ${friend.surname}`;
-            select.appendChild(option);
-        });
+        allFriends = friends;
+        updateFriendResults("");
     } catch (err) {
         console.error("Fehler beim Laden der Freundesliste:", err);
     }
 }
 
-// Direkt beim Laden der Seite aufrufen
+function updateFriendResults(query) {
+    resultsBox.innerHTML = "";
+    const filtered = allFriends.filter(friend =>
+        `${friend.firstName} ${friend.surname}`.toLowerCase().includes(query.toLowerCase()) &&
+        !selectedFriends.has(friend.id)
+    );
+
+    filtered.forEach(friend => {
+        const div = document.createElement("div");
+        div.textContent = `${friend.firstName} ${friend.surname}`;
+        div.addEventListener("click", () => {
+            addSelectedFriend(friend);
+            resultsBox.innerHTML = "";
+            searchInput.value = "";
+        });
+        resultsBox.appendChild(div);
+    });
+}
+
+function addSelectedFriend(friend) {
+    selectedFriends.set(friend.id, friend);
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "selected-friend";
+    wrapper.setAttribute("data-id", friend.id);
+
+    wrapper.innerHTML = `
+        <img src="${friend.profilbild}" alt="">
+        <span>${friend.firstName} ${friend.surname}</span>
+        <span class="remove">&times;</span>
+        <input type="hidden" name="invitedFriends[]" value="${friend.id}">
+    `;
+
+    wrapper.querySelector(".remove").addEventListener("click", () => {
+        selectedFriends.delete(friend.id);
+        wrapper.remove();
+    });
+
+    selectedFriendsContainer.appendChild(wrapper);
+}
+
+searchInput.addEventListener("input", () => {
+    updateFriendResults(searchInput.value);
+});
+
 loadFriends();
