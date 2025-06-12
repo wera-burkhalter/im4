@@ -30,3 +30,13 @@ document.getElementById("eventForm").addEventListener("submit", async (e) => {
         alert("Fehler beim Speichern.");
     }
 });
+
+// Bild-Vorschau nach Auswahl
+document.getElementById("imageInput").addEventListener("change", function () {
+    const file = this.files[0];
+    if (file) {
+        const preview = document.getElementById("previewImage");
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = "block";
+    }
+});
