@@ -42,9 +42,9 @@ $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // Zusätzliche Felder für die Anzeige vorbereiten
 foreach ($events as &$event) {
     $event['creator_name'] = $event['creator_firstName'] . ' ' . $event['creator_surname'];
-    $event['creator_image'] = !empty($event['creator_profilbild'])
-        ? 'assets/uploads/' . $event['creator_profilbild']
-        : 'assets/standard_avatar.png';
+   $event['creator_image'] = !empty($event['creator_profilbild'])
+    ? $event['creator_profilbild']
+    : 'assets/standard_avatar.png';
 }
 unset($event);
 
