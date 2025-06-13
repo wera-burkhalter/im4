@@ -110,9 +110,13 @@ function showEventDetail(id) {
   document.getElementById("detailTitle").textContent = event.title;
   document.getElementById("detailDatePlace").textContent = `${formatDate(event.date)} | ${event.place}`;
   document.getElementById("detailTime").textContent = event.time ? `${event.time} Uhr` : "";
-  document.getElementById("detailImage").src = event.image;
-  document.getElementById("detailDescription").textContent = event.description;
-
+  document.getElementById("detailImage").src = event.image;const imageEl = document.getElementById("detailImage");
+if (event.image) {
+  imageEl.src = event.image;
+  imageEl.style.display = "block";
+} else {
+  imageEl.style.display = "none";
+}
   // Nur im Detail-Popup den Ersteller ggf. ausblenden
   const creatorSection = document.getElementById("detailCreator");
   if (event.creator_id != currentUserId) {
