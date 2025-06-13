@@ -179,12 +179,12 @@ function handleResponse(eventId, status) {
       card.className = "invite-card";
       card.innerHTML = `
         <h3>${event.title}</h3>
-        <div class="meta">${event.date} | ${event.place}</div>
+        <div class="meta">${formatDate(event.date)} | ${event.place}</div>
         <div class="organizer">
           <img src="${event.organizer.profilbild}" alt="">
           ${event.organizer.name}
         </div>
-        <div class="deadline">Frist: <strong>${event.deadline}</strong></div>
+        <div class="deadline">Frist: <strong>${formatDate(event.deadline)}</strong></div>
       `;
       card.addEventListener("click", () => showDetails(event.id));
       list.appendChild(card);
