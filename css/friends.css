@@ -17,24 +17,20 @@ body {
 }
 
 .container {
+  width: 100%;
   max-width: 420px;
   margin: 0 auto;
   padding: 2rem 1rem;
   text-align: center;
-  width: 100%;
 }
 
-@media (min-width: 1366px) {
-  html, body {
-    overflow: hidden;
-  }
-
+/* Breakpoint: Tablet & Desktop */
+@media (min-width: 700px) {
   .container {
-    max-width: 1200px;
+    max-width: 1100px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
     padding-bottom: 3rem;
   }
 
@@ -46,6 +42,19 @@ body {
     align-items: flex-start;
     margin-top: 1rem;
   }
+
+  .freunde-liste {
+    height: 300px;
+    max-width: 100%;
+  }
+}
+
+/* Breakpoint: Desktop groß (zentriert) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
 }
 
 /* ----------------------------- */
@@ -54,12 +63,11 @@ body {
 
 .freunde-liste {
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   border: 3px solid #002147;
   border-radius: 16px;
   padding: 1rem;
-  height: 250px;
   overflow-y: auto;
   overflow-x: hidden;
   display: flex;
@@ -89,6 +97,10 @@ body {
   color: #002147;
 }
 
+/* ----------------------------- */
+/* Button */
+/* ----------------------------- */
+
 .entfernen-button {
   background-color: #d38b26;
   color: white;
@@ -104,10 +116,6 @@ body {
 .entfernen-button:hover {
   background-color: #ba741f;
 }
-
-/* ----------------------------- */
-/* Button */
-/* ----------------------------- */
 
 .hinzufuegen-button {
   display: block;
@@ -285,36 +293,3 @@ body {
   max-width: 90%;
 }
 
-/* Responsive Breakpoints */
-@media (max-width: 1024px) {
-  .freunde-liste {
-    max-width: 90%;
-    height: auto;
-  }
-}
-
-@media (max-width: 768px) {
-  .freunde-liste {
-    max-width: 95%;
-  }
-
-  .container {
-    padding: 1.5rem 1rem 5rem 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .freund-box span {
-    font-size: 0.9rem;
-  }
-
-  .entfernen-button {
-    padding: 0.3rem 0.8rem;
-    font-size: 0.85rem;
-  }
-
-  .hinzufuegen-button {
-    font-size: 0.9rem;
-    padding: 0.6rem 1.2rem;
-  }
-}
