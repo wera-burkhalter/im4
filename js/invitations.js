@@ -94,7 +94,7 @@ async function showDetails(eventId) {
     content.innerHTML = `
       <h3>${data.title}</h3>
       <img class="cover" src="${data.image}" alt="Event-Bild">
-      <div class="meta">${data.date} | ${data.place}</div>
+      <div class="meta">${formatDate(data.date)} | ${data.place}</div>
       <div class="time">ab ${data.time} Uhr</div>
       <p>${data.description}</p>
       <div class="avatars">${guestsHTML}</div>
@@ -210,7 +210,7 @@ async function showDetails(eventId) {
     content.innerHTML = `
       <h3>${data.title}</h3>
       <img class="cover" src="${data.image}" alt="Event-Bild">
-      <div class="meta">${data.date} | ${data.place}</div>
+      <div class="meta">${formatDate(data.date)} | ${data.place}</div>
       <div class="time">ab ${data.time} Uhr</div>
       <p>${data.description}</p>
       <div class="avatars">${guestsHTML}</div>
