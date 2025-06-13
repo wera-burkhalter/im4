@@ -74,32 +74,35 @@ async function showDetails(eventId) {
     }
 
     content.innerHTML = `
-      <h3>${data.title}</h3>
-      ${imageHTML}
-      <div class="meta">${formatDate(data.date)} | ${data.place}</div>
-      <div class="time">ab ${data.time} Uhr</div>
-      <p>${data.description}</p>
-      <div class="avatars-wrapper">
-        <div class="avatars">${guestsHTML}</div>
-      </div>
-      <div class="organizer">
-        <img src="${data.organizer.profilbild}" alt=""> ${data.organizer.name}
-      </div>
-      <div class="response-buttons">
-        <button class="response-btn yes">
-          <span class="icon">✔</span>
-          <span class="label">zusagen</span>
-        </button>
-        <button class="response-btn maybe">
-          <span class="icon">?</span>
-          <span class="label">evtl.</span>
-        </button>
-        <button class="response-btn no">
-          <span class="icon">✖</span>
-          <span class="label">absagen</span>
-        </button>
-      </div>
-    `;
+  <div class="modal-scroll">
+    <h3>${data.title}</h3>
+    ${imageHTML}
+    <div class="meta">${formatDate(data.date)} | ${data.place}</div>
+    <div class="time">ab ${data.time} Uhr</div>
+    <p>${data.description}</p>
+    <div class="avatars-wrapper">
+      <div class="avatars">${guestsHTML}</div>
+    </div>
+    <div class="organizer">
+      <img src="${data.organizer.profilbild}" alt=""> ${data.organizer.name}
+    </div>
+    <div class="response-buttons">
+      <button class="response-btn yes">
+        <span class="icon">✔</span>
+        <span class="label">zusagen</span>
+      </button>
+      <button class="response-btn maybe">
+        <span class="icon">?</span>
+        <span class="label">evtl.</span>
+      </button>
+      <button class="response-btn no">
+        <span class="icon">✖</span>
+        <span class="label">absagen</span>
+      </button>
+    </div>
+  </div>
+`;
+
 
     // Event-Buttons
     content.querySelector(".yes").onclick = () => handleResponse(eventId, "angenommen");

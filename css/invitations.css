@@ -94,8 +94,16 @@ h2 {
   max-width: 90%;
   width: 400px;
   position: relative;
-  max-height: 90vh; /* nur max. 90% der Fensterhöhe */
-  overflow-y: auto; /* ermöglicht Scrollen innerhalb des Modals */
+  max-height: 90vh;
+  overflow: hidden; /* wichtig: kein Scrollbalken außen */
+  position: relative;
+}
+
+.modal-scroll {
+  max-height: 90vh;
+  overflow-y: auto;
+  padding-right: 0.5rem; /* etwas Abstand zur Scrollbar */
+  box-sizing: content-box;
 }
 
 .modal .close {
