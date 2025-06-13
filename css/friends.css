@@ -32,12 +32,13 @@
 /* ----------------------------- */
 
 .freunde-liste {
-  max-width: 400px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   border: 3px solid #002147;
   border-radius: 16px;
   padding: 1rem;
-  height: 360px;
+  height: auto;
   overflow-y: auto;
   overflow-x: hidden;
   display: flex;
@@ -47,7 +48,7 @@
 
 @media (min-width: 900px) {
   .freunde-liste {
-    height: 500px;
+    height: auto;
   }
 }
 
