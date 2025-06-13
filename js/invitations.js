@@ -91,22 +91,27 @@ async function showDetails(eventId) {
     // Gäste-Bilder HTML erzeugen
     const guestsHTML = data.guests.map(g => `<img src="${g.profilbild}" title="${g.name}">`).join("");
 
-    content.innerHTML = `
-      <h3>${data.title}</h3>
-      <img class="cover" src="${data.image}" alt="Event-Bild">
-      <div class="meta">${formatDate(data.date)} | ${data.place}</div>
-      <div class="time">ab ${data.time} Uhr</div>
-      <p>${data.description}</p>
-      <div class="avatars">${guestsHTML}</div>
-      <div class="organizer">
-        <img src="${data.organizer.profilbild}" alt=""> ${data.organizer.name}
-      </div>
-      <div class="response-buttons">
-        <button class="yes">✔ zusagen</button>
-        <button class="maybe">? evtl.</button>
-        <button class="no">✖ absagen</button>
-      </div>
-    `;
+    let imageHTML = "";
+if (data.image) {
+  imageHTML = `<img class="cover" src="${data.image}" alt="Event-Bild">`;
+}
+
+content.innerHTML = `
+  <h3>${data.title}</h3>
+  ${imageHTML}
+  <div class="meta">${formatDate(data.date)} | ${data.place}</div>
+  <div class="time">ab ${data.time} Uhr</div>
+  <p>${data.description}</p>
+  <div class="avatars">${guestsHTML}</div>
+  <div class="organizer">
+    <img src="${data.organizer.profilbild}" alt=""> ${data.organizer.name}
+  </div>
+  <div class="response-buttons">
+    <button class="yes">✔ zusagen</button>
+    <button class="maybe">? evtl.</button>
+    <button class="no">✖ absagen</button>
+  </div>
+`;
 
     // Event-Buttons
     content.querySelector(".yes").onclick = () => handleResponse(eventId, "angenommen");
@@ -207,22 +212,27 @@ async function showDetails(eventId) {
     // Gäste-Bilder HTML erzeugen
     const guestsHTML = data.guests.map(g => `<img src="${g.profilbild}" title="${g.name}">`).join("");
 
-    content.innerHTML = `
-      <h3>${data.title}</h3>
-      <img class="cover" src="${data.image}" alt="Event-Bild">
-      <div class="meta">${formatDate(data.date)} | ${data.place}</div>
-      <div class="time">ab ${data.time} Uhr</div>
-      <p>${data.description}</p>
-      <div class="avatars">${guestsHTML}</div>
-      <div class="organizer">
-        <img src="${data.organizer.profilbild}" alt=""> ${data.organizer.name}
-      </div>
-      <div class="response-buttons">
-        <button class="yes">✔ zusagen</button>
-        <button class="maybe">? evtl.</button>
-        <button class="no">✖ absagen</button>
-      </div>
-    `;
+    let imageHTML = "";
+if (data.image) {
+  imageHTML = `<img class="cover" src="${data.image}" alt="Event-Bild">`;
+}
+
+content.innerHTML = `
+  <h3>${data.title}</h3>
+  ${imageHTML}
+  <div class="meta">${formatDate(data.date)} | ${data.place}</div>
+  <div class="time">ab ${data.time} Uhr</div>
+  <p>${data.description}</p>
+  <div class="avatars">${guestsHTML}</div>
+  <div class="organizer">
+    <img src="${data.organizer.profilbild}" alt=""> ${data.organizer.name}
+  </div>
+  <div class="response-buttons">
+    <button class="yes">✔ zusagen</button>
+    <button class="maybe">? evtl.</button>
+    <button class="no">✖ absagen</button>
+  </div>
+`;
 
     // Event-Buttons
     content.querySelector(".yes").onclick = () => handleResponse(eventId, "angenommen");
