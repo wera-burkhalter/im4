@@ -66,6 +66,10 @@ html, body {
   background-color: #b6761f;
 }
 
+/* ----------------------------- */
+/* Breakpoints wie bei create.css */
+/* ----------------------------- */
+
 @media (min-width: 1366px) {
   .container {
     max-width: 1200px;
@@ -73,7 +77,12 @@ html, body {
   }
 
   .button-group {
-    width: 250px;
+    width: 280px;
+  }
+
+  .main-button {
+    font-size: 1.2rem;
+    padding: 1rem;
   }
 }
 
