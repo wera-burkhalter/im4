@@ -1,9 +1,18 @@
-body {
+/* ----------------------------- */
+/* Homescreen Responsive CSS */
+/* ----------------------------- */
+
+html, body {
+  height: 100%;
+  margin: 0;
   padding: 2rem 1rem 5rem;
+  background-color: #fffff9;
+  font-family: 'Poppins', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -33,6 +42,7 @@ h1 {
   width: 100%;
   height: auto;
   border-radius: 15px;
+  max-width: 140px;
 }
 
 .homescreenIcons:hover {
@@ -44,19 +54,59 @@ a {
   text-decoration: none;
 }
 
-@media screen and (min-width: 400px) {
-  body {
-    max-width: 480px;
-    margin: 0 auto;
-  }
-
-  .homescreenIcons {
-    width: 140px;
-  }
-}
 .icon-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   justify-items: center;
+  width: 100%;
+  max-width: 450px;
+  margin-top: 2rem;
+}
+
+/* ----------------------------- */
+/* Responsive Breakpoints */
+/* ----------------------------- */
+
+@media (min-width: 1366px) {
+  html, body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+  }
+
+  .icon-grid {
+    max-width: 700px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 2rem 1rem 6rem;
+  }
+
+  .homescreenIcons {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .homescreenIcons {
+    max-width: 100px;
+  }
+
+  .icon-grid {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  body {
+    padding: 1.5rem 0.5rem 7rem;
+  }
+
+  .homescreenIcons {
+    max-width: 90px;
+  }
 }
