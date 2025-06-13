@@ -1,16 +1,3 @@
-/* ----------------------------- */
-/* Zentriertes Layout */
-/* ----------------------------- */
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  background-color: #fffff9;
-  font-family: 'Poppins', sans-serif;
-}
-
 .container {
   max-width: 400px;
   margin: 0 auto;
@@ -21,10 +8,6 @@ html, body {
   width: 100%;
   box-sizing: border-box;
 }
-
-/* ----------------------------- */
-/* Logo */
-/* ----------------------------- */
 
 .logo {
   display: flex;
@@ -43,10 +26,6 @@ html, body {
   color: #002147;
   margin-top: 0.5rem;
 }
-
-/* ----------------------------- */
-/* Formularfelder */
-/* ----------------------------- */
 
 form {
   width: 100%;
@@ -71,10 +50,6 @@ form input[type="password"] {
   outline: none;
   box-sizing: border-box;
 }
-
-/* ----------------------------- */
-/* Buttons */
-/* ----------------------------- */
 
 .button-row {
   display: flex;
@@ -108,10 +83,6 @@ form input[type="password"] {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   align-self: flex-end;
 }
-
-/* ----------------------------- */
-/* Responsive Anpassungen */
-/* ----------------------------- */
 
 @media (min-width: 1366px) {
   .container {

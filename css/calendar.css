@@ -1,6 +1,3 @@
-/* -------------------------- */
-/* Basis-Styling & Layout */
-/* -------------------------- */
 
 .main-layout {
   display: flex;
@@ -24,9 +21,7 @@
   }
 }
 
-/* -------------------------- */
 /* Kalender Container */
-/* -------------------------- */
 
 .calendar-container {
   border: 4px solid #002147;
@@ -95,9 +90,7 @@
   color: white;
 }
 
-/* -------------------------- */
 /* Event-Vorschau Container */
-/* -------------------------- */
 
 #eventPreviewContainer {
   width: 100%;
@@ -141,9 +134,7 @@
   object-fit: cover;
 }
 
-/* -------------------------- */
 /* Detail-Popup */
-/* -------------------------- */
 
 #eventDetailModal {
   display: none;
@@ -209,9 +200,7 @@
   border: none;
 }
 
-/* -------------------------- */
 /* Event-Footer & Abmelden */
-/* -------------------------- */
 
 .event-footer {
   display: flex;
@@ -249,9 +238,7 @@
   object-fit: cover;
 }
 
-/* -------------------------- */
 /* Modal-Fix: Unsichtbar per Default */
-/* -------------------------- */
 
 #confirmModal {
   display: none;
