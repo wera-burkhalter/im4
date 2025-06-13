@@ -28,7 +28,7 @@ async function loadInvitations() {
 
     events.forEach(event => {
       const card = document.createElement("div");
-      card.className = "event-card";
+      card.className = "invite-card";
       card.innerHTML = `
         <h3>${event.title}</h3>
         <div class="meta">${event.date} | ${event.place}</div>
