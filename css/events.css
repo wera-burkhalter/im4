@@ -90,6 +90,13 @@
   position: relative;
   max-height: 90vh;
   overflow-y: auto;
+  text-align: center;
+}
+
+.modal-content .btn-delete,
+.modal-content .btn-cancel {
+  display: inline-block;
+  margin: 0.5rem 0.5rem 0 0.5rem;
 }
 
 .modal .close {

@@ -89,6 +89,15 @@ function confirmDelete(eventId) {
 
   document.body.appendChild(modal);
 
+  // Klick ausserhalb schliesst Modal
+  window.addEventListener("click", function handler(e) {
+    if (e.target === modal) {
+      modal.remove();
+      window.removeEventListener("click", handler);
+    }
+  });
+
+
   modal.querySelector(".close").onclick = () => modal.remove();
   modal.querySelector(".btn-cancel").onclick = () => modal.remove();
 
