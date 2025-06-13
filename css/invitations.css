@@ -102,6 +102,16 @@ h2 {
   text-align: center;
 }
 
+.modal-content.default {
+  text-align: left;
+  padding-top: 1rem;
+}
+
+.modal-content.centered {
+  text-align: center;
+}
+
+
 .modal .close {
   position: absolute;
   top: 12px;
