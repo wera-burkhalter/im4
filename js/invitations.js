@@ -108,10 +108,20 @@ content.innerHTML = `
     <img src="${data.organizer.profilbild}" alt=""> ${data.organizer.name}
   </div>
   <div class="response-buttons">
-    <button class="yes">✔ zusagen</button>
-    <button class="maybe">? evtl.</button>
-    <button class="no">✖ absagen</button>
-  </div>
+  <button class="response-btn yes">
+    <span class="icon">✔</span>
+    <span class="label">zusagen</span>
+  </button>
+  <button class="response-btn maybe">
+    <span class="icon">?</span>
+    <span class="label">evtl.</span>
+  </button>
+  <button class="response-btn no">
+    <span class="icon">✖</span>
+    <span class="label">absagen</span>
+  </button>
+</div>
+
 `;
 
     // Event-Buttons
@@ -230,10 +240,20 @@ content.innerHTML = `
     <img src="${data.organizer.profilbild}" alt=""> ${data.organizer.name}
   </div>
   <div class="response-buttons">
-    <button class="yes">✔ zusagen</button>
-    <button class="maybe">? evtl.</button>
-    <button class="no">✖ absagen</button>
-  </div>
+  <button class="response-btn yes">
+    <span class="icon">✔</span>
+    <span class="label">zusagen</span>
+  </button>
+  <button class="response-btn maybe">
+    <span class="icon">?</span>
+    <span class="label">evtl.</span>
+  </button>
+  <button class="response-btn no">
+    <span class="icon">✖</span>
+    <span class="label">absagen</span>
+  </button>
+</div>
+
 `;
 
     // Event-Buttons
