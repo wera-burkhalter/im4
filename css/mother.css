@@ -58,7 +58,7 @@ p {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 430px;
+  max-width: none;
   background-color: #002147;
   display: flex;
   justify-content: space-around;

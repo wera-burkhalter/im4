@@ -32,6 +32,12 @@
   flex-direction: column;
 }
 
+@media (min-width: 900px) {
+  .calendar-container {
+    max-width: 520px;
+  }
+}
+
 .calendar-header {
   display: flex;
   justify-content: space-between;
@@ -96,7 +102,7 @@
 
 @media (min-width: 900px) {
   #eventPreviewContainer {
-    max-width: 600px;
+    max-width: 680px;
   }
 }
 
