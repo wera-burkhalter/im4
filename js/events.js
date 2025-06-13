@@ -79,7 +79,7 @@ function confirmDelete(eventId) {
   const modal = document.createElement("div");
   modal.className = "modal";
   modal.innerHTML = `
-    <div class="modal-content">
+    <div class="modal-content centered">
       <span class="close">&times;</span>
       <p>Bist du sicher, dass du dieses Event absagen willst?</p>
       <button class="btn-delete">Ja</button>
@@ -114,8 +114,8 @@ function confirmDelete(eventId) {
     const reply = await res.json();
     if (reply.status === "success") {
       modal.innerHTML = `
-        <div class="modal-content">
-          <p>Du hast das Event erfolgreich abgesagt.<br>Deine eingeladenen Freunde werden darüber informiert.</p>
+        <div class="modal-content centered">
+          <p>Du hast das Event erfolgreich abgesagt.</p>
         </div>
       `;
       setTimeout(() => window.location.reload(), 2000);
@@ -138,7 +138,7 @@ async function openDetailsModal(eventId) {
     modal.className = "modal";
 
     modal.innerHTML = `
-      <div class="modal-content">
+      <div class="modal-content default">
         <span class="close">&times;</span>
         <h3>${data.title}</h3>
 
