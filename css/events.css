@@ -29,7 +29,7 @@
 
 .event-card .angefragt {
   display: flex;
-  justify-content: flex-end; /* ⬅️ sorgt für Rechtsbündigkeit */
+  justify-content: flex-end;
   align-items: center;
   gap: 0.4rem;
   margin-top: 0.5rem;
