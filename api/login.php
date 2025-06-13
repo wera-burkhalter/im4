@@ -26,7 +26,6 @@ if ($user) {
         $_SESSION['firstName'] = $user['firstName'];
         $_SESSION['profilbild'] = $user['profilbild']; 
 
-        echo "X";
 } else {
     echo "Passwort nicht korrekt";  
 }
