@@ -1,5 +1,13 @@
 let currentUserId = null;
 
+function formatDate(isoDateString) {
+  const date = new Date(isoDateString);
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = date.getFullYear();
+  return `${day}.${month}.${year}`;
+}
+
 // 1. Session prüfen & Profilbild setzen
 fetch("api/protected.php")
   .then(res => res.json())
@@ -31,7 +39,7 @@ async function loadEvents() {
 
       card.innerHTML = `
         <h3>${event.title}</h3>
-        <div class="meta">${event.date} | ${event.place}</div>
+        <div class="meta">${formatDate(event.date)} | ${event.place}</div>
         <div class="angefragt">
           Angefragt:
           <div class="avatars">
