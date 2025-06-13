@@ -117,11 +117,15 @@ h2 {
   margin-bottom: 1rem;
 }
 
-.modal-content .avatars {
+.modal-content .organizer {
   display: flex;
-  margin-top: 0.5rem;
-  gap: 0.3rem;
+  justify-content: flex-end; /* <--- NEU */
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  text-align: right; /* <--- optional, für Namen */
 }
+
 
 .modal-content .avatars img {
   width: 28px;
