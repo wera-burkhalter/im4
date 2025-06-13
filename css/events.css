@@ -11,18 +11,19 @@
   border-radius: 20px;
   padding: 1rem;
   margin-bottom: 1rem;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
   position: relative;
   cursor: pointer;
 }
 
-.event-card h3 {
+.event-card h3,
+.event-card .meta,
+.event-card .angefragt {
   margin: 0;
-  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-size: clamp(0.85rem, 2vw, 1rem);
 }
 
 .event-card .meta {
-  font-size: clamp(0.85rem, 2vw, 1rem);
+
   margin-top: 0.4rem;
   color: #333;
 }
@@ -33,7 +34,6 @@
   align-items: center;
   gap: 0.4rem;
   margin-top: 0.5rem;
-  font-size: clamp(0.85rem, 2vw, 1rem);
   text-align: right;
 }
 
@@ -42,13 +42,17 @@
   align-items: center;
 }
 
+.avatars img,
+.status-group .person img {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
 .avatars img {
   width: 28px;
   height: 28px;
-  border-radius: 50%;
-  object-fit: cover;
   margin-right: -10px;
-  border: 2px solid white;
 }
 
 .plus-count {
