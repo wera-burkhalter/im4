@@ -110,23 +110,25 @@ function showEventDetail(id) {
   document.getElementById("detailTitle").textContent = event.title;
   document.getElementById("detailDatePlace").textContent = `${formatDate(event.date)} | ${event.place}`;
   document.getElementById("detailTime").textContent = event.time ? `${event.time} Uhr` : "";
-  document.getElementById("detailImage").src = event.image;const imageEl = document.getElementById("detailImage");
+const imageEl = document.getElementById("detailImage");
 if (event.image) {
   imageEl.src = event.image;
   imageEl.style.display = "block";
 } else {
   imageEl.style.display = "none";
 }
-  // Nur im Detail-Popup den Ersteller ggf. ausblenden
-  const creatorSection = document.getElementById("detailCreator");
+  document.getElementById("detailDescription").textContent = event.description;
+
+  // Creator anzeigen nur wenn nicht selbst erstellt
   if (event.creator_id != currentUserId) {
     document.getElementById("creatorImage").src = event.creator_image;
     document.getElementById("creatorName").textContent = event.creator_name;
-    creatorSection.style.display = "flex";
+    document.querySelector(".event-creator").style.display = "flex";
   } else {
-    creatorSection.style.display = "none";
+    document.querySelector(".event-creator").style.display = "none";
   }
 
+  // Abmelden-Button nur wenn nicht der Ersteller
   abmeldenBtn.style.display = (event.creator_id != currentUserId) ? "block" : "none";
   abmeldenBtn.onclick = () => openUnsubscribePopup(id);
 
