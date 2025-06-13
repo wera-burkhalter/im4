@@ -1,89 +1,72 @@
 <?php
-// Fehleranzeige aktivieren (für Entwicklung)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-// Datenbankverbindung laden
 require_once(__DIR__ . '/../config.php');
 
-// Antwort als Text
-header('Content-Type: text/plain; charset=UTF-8');
+header('Content-Type: application/json; charset=UTF-8');
 
-// Formulardaten
 $phone = $_POST['phone'] ?? '';
 $firstName = $_POST['firstName'] ?? '';
 $surname = $_POST['surname'] ?? '';
 $password = $_POST['password'] ?? '';
 
-// Validierung der Eingabefelder
 if (empty($phone) || empty($firstName) || empty($surname) || empty($password)) {
-    echo "Bitte fülle alle Felder aus.";
+    echo json_encode(['status' => 'error', 'message' => 'Bitte fülle alle Felder aus.']);
     exit;
 }
 
 if (strlen($password) < 8) {
-    echo "Das Passwort muss mindestens 8 Zeichen lang sein.";
+    echo json_encode(['status' => 'error', 'message' => 'Das Passwort muss mindestens 8 Zeichen lang sein.']);
     exit;
 }
 
-// Passwort hashen
-$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-// Prüfen, ob Telefonnummer bereits existiert
 $stmt = $pdo->prepare("SELECT * FROM benutzer WHERE phone = :phone");
 $stmt->execute([':phone' => $phone]);
-$user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-if ($user) {
-    echo "Ein Benutzer mit dieser Telefonnummer existiert bereits.";
+if ($stmt->fetch()) {
+    echo json_encode(['status' => 'error', 'message' => 'Diese Telefonnummer ist bereits registriert.']);
     exit;
 }
 
-// Bild-Upload & Validierung
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 $profilePicturePath = null;
 
+// Profilbild verarbeiten
 if (isset($_FILES['profilePicture']) && $_FILES['profilePicture']['error'] === UPLOAD_ERR_OK) {
     $tmpName = $_FILES['profilePicture']['tmp_name'];
-
-    // MIME-Typ prüfen
     $finfo = finfo_open(FILEINFO_MIME_TYPE);
     $mimeType = finfo_file($finfo, $tmpName);
     finfo_close($finfo);
 
-    $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-    if (!in_array($mimeType, $allowedTypes)) {
-        echo "Nur JPG, PNG, GIF oder WEBP Dateien sind erlaubt!";
+    $allowed = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+    if (!in_array($mimeType, $allowed)) {
+        echo json_encode(['status' => 'error', 'message' => 'Nur JPG, PNG, GIF oder WEBP erlaubt.']);
         exit;
     }
 
-    // Dateigröße prüfen (max. 2 MB)
-    $maxSize = 2 * 1024 * 1024;
-    if ($_FILES['profilePicture']['size'] > $maxSize) {
-        echo "Die Datei ist zu groß. Maximal erlaubt: 2 MB.";
+    if ($_FILES['profilePicture']['size'] > 2 * 1024 * 1024) {
+        echo json_encode(['status' => 'error', 'message' => 'Profilbild darf maximal 2 MB groß sein.']);
         exit;
     }
 
-    // Dateipfad vorbereiten
     $originalName = basename($_FILES['profilePicture']['name']);
-    $targetDir = __DIR__ . '/../uploads/';
     $newFileName = uniqid() . '_' . $originalName;
-    $profilePicturePath = 'uploads/' . $newFileName;
+    $targetDir = __DIR__ . '/../uploads/';
+    if (!is_dir($targetDir)) mkdir($targetDir, 0755, true);
 
-    // Zielordner anlegen, falls nicht vorhanden
-    if (!is_dir($targetDir)) {
-        mkdir($targetDir, 0755, true);
+    if (!move_uploaded_file($tmpName, $targetDir . $newFileName)) {
+        echo json_encode(['status' => 'error', 'message' => 'Fehler beim Speichern des Profilbilds.']);
+        exit;
     }
 
-    // Datei speichern
-    move_uploaded_file($tmpName, $targetDir . $newFileName);
+    $profilePicturePath = 'uploads/' . $newFileName;
 } else {
-    echo "Fehler beim Hochladen des Profilbildes!";
+    echo json_encode(['status' => 'error', 'message' => 'Profilbild ist erforderlich.']);
     exit;
 }
 
-// In Datenbank einfügen
-$insert = $pdo->prepare("INSERT INTO benutzer (phone, firstName, surname, password, profilbild) VALUES (:phone, :firstName, :surname, :pass, :bild)");
+// Benutzer speichern
+$insert = $pdo->prepare("
+    INSERT INTO benutzer (phone, firstName, surname, password, profilbild)
+    VALUES (:phone, :firstName, :surname, :pass, :bild)
+");
 $insert->execute([
     ':phone' => $phone,
     ':firstName' => $firstName,
@@ -92,8 +75,6 @@ $insert->execute([
     ':bild' => $profilePicturePath
 ]);
 
-// Erfolgreiche Rückmeldung
-echo "Benutzer erfolgreich registriert!\n";
-echo "Name: {$firstName} {$surname}\n";
-echo "Telefon: {$phone}\n";
-echo "Profilbild: {$profilePicturePath}\n";
+// Erfolgreiche Antwort
+echo json_encode(['status' => 'success', 'message' => 'Registrierung erfolgreich!']);
+

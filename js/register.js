@@ -1,56 +1,55 @@
-console.log("hello from register js!");
+console.log("register.js loaded");
 
-document
-.getElementById("registerForm")
-.addEventListener("submit", async (e) => {
-    e.preventDefault();
+document.getElementById("registerForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-    //Felder abrufen
-    const phone = document.querySelector("#phone").value;
-    console.log(phone);
-    const firstName = document.querySelector("#firstName").value;
-    console.log(firstName);
-    const surname = document.querySelector("#surname").value;
-    console.log(surname);
-    const password = document.querySelector("#password").value;
-    console.log(password);
-    const fileInput = document.querySelector("#profilePicture");
-    console.log(fileInput);
-    const file = fileInput.files[0];
-    console.log(file);
+  const phone = document.querySelector("#phone").value.trim();
+  const firstName = document.querySelector("#firstName").value.trim();
+  const surname = document.querySelector("#surname").value.trim();
+  const password = document.querySelector("#password").value;
+  const fileInput = document.querySelector("#profilePicture");
+  const file = fileInput.files[0];
 
-    //Validierung
-    if (!phone || !firstName || !surname || !password || !file) {
-        alert("Bitte fülle alle Felder aus.");
-        return;
+  if (!phone || !firstName || !surname || !password || !file) {
+    showError("Bitte fülle alle Felder aus.");
+    return;
+  }
+
+  if (password.length < 8) {
+    showError("Das Passwort muss mindestens 8 Zeichen lang sein.");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("phone", phone);
+  formData.append("firstName", firstName);
+  formData.append("surname", surname);
+  formData.append("password", password);
+  formData.append("profilePicture", file);
+
+  try {
+    const res = await fetch("api/register.php", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await res.json();
+
+    if (data.status === "success") {
+      window.location.href = "login.html"; // Weiterleiten zur Login-Seite
+    } else {
+      showError(data.message);
     }
-
-    if (password.length < 8) {
-        alert("Das Passwort muss mindestens 8 Zeichen lang sein.");
-        return;
-    }
-
-    //Formulardaten vorbereiten
-    const formData = new FormData();
-    formData.append("phone", phone);
-    formData.append("firstName", firstName);
-    formData.append("surname", surname);
-    formData.append("password", password);
-    formData.append("profilePicture", file);
-
-    // Senden
-    try {
-        const res = await fetch("api/register.php", {
-            method: "POST",
-            body: formData,
-        });
-
-        const data = await res.text(); // falls du auf JSON umstellst: `await res.json()`
-        console.log("Antwort vom Server:\n" + data);
-        alert(data); // einfache Ausgabe im Browser
-    } catch (error) {
-        console.error("Fehler beim Senden der Anfrage:", error);
-        alert("Ein Fehler ist aufgetreten.");
-    }
+  } catch (err) {
+    console.error("Fehler beim Registrieren:", err);
+    showError("Ein technischer Fehler ist aufgetreten.");
+  }
 });
+
+function showError(msg) {
+  const el = document.getElementById("errorMessage");
+  el.textContent = msg;
+  el.style.display = "block";
+}
+
 
