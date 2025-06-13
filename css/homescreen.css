@@ -114,3 +114,21 @@ a {
     max-width: 100px;
   }
 }
+
+.logout-button {
+  margin-top: 2rem;
+  background-color: #d38b26;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease;
+}
+
+.logout-button:hover {
+  background-color: #ba741f;
+}
