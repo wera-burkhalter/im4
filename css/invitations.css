@@ -94,6 +94,8 @@ h2 {
   max-width: 90%;
   width: 400px;
   position: relative;
+  max-height: 90vh; /* nur max. 90% der Fensterhöhe */
+  overflow-y: auto; /* ermöglicht Scrollen innerhalb des Modals */
 }
 
 .modal .close {
@@ -141,14 +143,6 @@ h2 {
   display: flex;
   justify-content: flex-end;
   margin-top: 0.5rem;
-}
-
-
-.modal-content .organizer {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
 }
 
 .modal-content .organizer img {
