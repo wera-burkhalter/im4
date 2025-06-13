@@ -235,28 +235,26 @@ h2 {
 /* === Responsive Breakpoints === */
 @media (max-width: 480px) {
   .response-buttons {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.6rem;
+    flex-direction: row; /* wichtig: bleibt nebeneinander */
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 0.5rem;
   }
 
   .response-btn {
-    width: 100%;
-    max-width: 280px;
-    aspect-ratio: auto;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0.6rem 1rem;
-    border-radius: 16px;
+    flex: 1;
+    max-width: 80px;         /* kleiner als Desktop */
+    aspect-ratio: 1 / 1;
+    padding: 0.5rem;
   }
 
   .response-btn .icon {
-    margin: 0;
     font-size: 1.4rem;
   }
 
   .response-btn .label {
-    font-size: 1rem;
+    font-size: 0.75rem;
   }
 }
+
 
