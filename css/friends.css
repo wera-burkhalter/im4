@@ -38,7 +38,7 @@
   border: 3px solid #002147;
   border-radius: 16px;
   padding: 1rem;
-  height: auto;
+  height: 300px;
   overflow-y: auto;
   overflow-x: hidden;
   display: flex;
@@ -48,7 +48,7 @@
 
 @media (min-width: 900px) {
   .freunde-liste {
-    height: auto;
+    height: 300px;
   }
 }
 
