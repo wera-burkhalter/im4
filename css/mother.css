@@ -1,3 +1,7 @@
+/* Globale Box-Sizing-Regel */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 html, body {
   height: auto;
   min-height: 100vh;
