@@ -1,9 +1,35 @@
+/* ----------------------------- */
+/* Grundlayout */
+/* ----------------------------- */
+
 .container {
   max-width: 420px;
   margin: 0 auto;
   padding: 2rem 1rem;
   text-align: center;
 }
+
+@media (min-width: 900px) {
+  .container {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .freunde-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+    align-items: flex-start;
+    margin-top: 1rem;
+  }
+}
+
+/* ----------------------------- */
+/* Freundeliste */
+/* ----------------------------- */
 
 .freunde-liste {
   max-width: 400px;
@@ -17,6 +43,12 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .freunde-liste {
+    height: 500px;
+  }
 }
 
 .freund-box {
@@ -57,6 +89,10 @@
   background-color: #ba741f;
 }
 
+/* ----------------------------- */
+/* Button */
+/* ----------------------------- */
+
 .hinzufuegen-button {
   display: block;
   margin: 2rem auto 5rem auto;
@@ -73,6 +109,10 @@
 .hinzufuegen-button:hover {
   background-color: #3c661f;
 }
+
+/* ----------------------------- */
+/* Modal */
+/* ----------------------------- */
 
 .modal {
   display: none;
@@ -151,7 +191,6 @@
   min-width: 100px;
 }
 
-/* Entfernt Lupe beim Modal mit ja/nein */
 .modal-buttons button::after {
   content: none !important;
 }
