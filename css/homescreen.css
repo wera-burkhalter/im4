@@ -98,6 +98,9 @@ a {
   }
 }
 
+.logout-container {
+  text-align: center;
+}
 .logout-button {
   margin-top: 2rem;
   background-color: #d38b26;
