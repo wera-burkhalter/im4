@@ -138,7 +138,7 @@ async function openDetailsModal(eventId) {
     modal.className = "modal";
 
     modal.innerHTML = `
-      <div class="modal-content">
+      <div class="modal-content default">
         <span class="close">&times;</span>
         <h3>${data.title}</h3>
 
