@@ -1,97 +1,171 @@
+/* ----------------------------- */
+/* Register Responsive CSS */
+/* ----------------------------- */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #fffff9;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  background-color: #fffff9;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.logo img {
+  height: 48px;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  color: #002147;
+}
+
+.image-upload {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.image-button {
+  border: 3px solid #002147;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  width: 120px;
+}
+
+.image-button img {
+  width: 32px;
+  margin-bottom: 0.5rem;
+}
+
+.image-button span {
+  font-weight: bold;
+  color: #002147;
+}
+
+form {
+  width: 100%;
+  max-width: 500px;
+}
+
+form label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+  color: #002147;
+}
+
+form input[type="text"],
+form input[type="tel"],
+form input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 3px solid #002147;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.back-button img {
+  width: 40px;
+}
+
+.submit-button {
+  background-color: #d38b26;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  align-self: flex-end;
+}
+
+/* ----------------------------- */
+/* Responsive Breakpoints */
+/* ----------------------------- */
+
+@media (min-width: 1366px) {
   .container {
-    background-color: #fffff9;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
+    max-width: 1200px;
+    padding-bottom: 3rem;
   }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 2rem;
+
+  form {
+    max-width: 500px;
   }
-  
-  .logo img {
-    height: 48px;
-  }
-  
-  .logo h1 {
-    font-size: 1.5rem;
-    color: #002147;
-  }
-  
-  .image-upload {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-    cursor: pointer;
-  }
-  
-  .image-button {
-    border: 3px solid #002147;
-    border-radius: 10px;
-    padding: 1rem;
-    text-align: center;
-    width: 120px;
-  }
-  
-  .image-button img {
-    width: 32px;
-    margin-bottom: 0.5rem;
-  }
-  
-  .image-button span {
-    font-weight: bold;
-    color: #002147;
-  }
-  
-  form label {
-    display: block;
-    margin-top: 1rem;
-    margin-bottom: 0.3rem;
-    font-weight: bold;
-    color: #002147;
-  }
-  
-  form input[type="text"],
-  form input[type="tel"],
-  form input[type="password"] {
-    width: 100%;
-    padding: 0.75rem;
-    border: 3px solid #002147;
-    border-radius: 10px;
-    font-size: 1rem;
-    outline: none;
-  }
-  
+
   .button-row {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-    align-items: center;
+    max-width: 500px;
   }
-  
-  .back-button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1rem 6rem 1rem;
   }
-  
-  .back-button img {
-    width: 40px;
-  }
-  
+
   .submit-button {
-    background-color: #d38b26;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 0.65rem 1.25rem;
+    font-size: 0.95rem;
   }
+}
+
+@media (max-width: 480px) {
+  .submit-button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .back-button img {
+    width: 36px;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding: 1.5rem 0.5rem 7rem 0.5rem;
+  }
+}
   

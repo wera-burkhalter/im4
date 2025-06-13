@@ -14,3 +14,10 @@ fetch("api/protected.php")
     ladeFreunde(); // ✅ Hier war der Fehler
   }
 });
+
+document.getElementById("logoutButton").addEventListener("click", () => {
+  fetch("api/logout.php")
+    .then(() => {
+      window.location.href = "index.html";
+    });
+});
