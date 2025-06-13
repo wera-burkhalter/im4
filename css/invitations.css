@@ -188,7 +188,8 @@ h2 {
 }
 
 .response-btn.maybe {
-  background-color: #003366;
+  background-color: #FFFFF9;
+  color: #003366;
 }
 
 .response-btn.no {
