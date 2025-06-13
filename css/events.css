@@ -90,7 +90,13 @@
   position: relative;
   max-height: 90vh;
   overflow-y: auto;
-  text-align: center;
+}
+
+.modal-content.default {
+text-align: left;
+}
+.modal-content.centered {
+text-align: center;
 }
 
 .modal-content .btn-delete,
