@@ -4,6 +4,16 @@
 
 html, body {
   overflow: hidden;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .container {
@@ -19,6 +29,8 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
+    overflow: hidden;
   }
 
   .freunde-wrapper {
@@ -272,4 +284,10 @@ html, body {
   margin: 1rem auto;
   font-size: 1rem;
   max-width: 90%;
+}
+
+@media (max-width: 899px) {
+  html, body {
+    overflow: auto;
+  }
 }
