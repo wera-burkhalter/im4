@@ -26,7 +26,7 @@ body {
 
 @media (min-width: 1366px) {
   html, body {
-    overflow: hidden;
+    overflow: auto;
   }
 
   .container {
@@ -54,7 +54,6 @@ body {
 
 .freunde-liste {
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
   border: 3px solid #002147;
   border-radius: 16px;
@@ -313,6 +312,17 @@ body {
   }
 }
 
+@media (max-width: 515px) {
+  .container {
+    padding-bottom: 7rem;
+  }
+
+  .freunde-liste {
+    max-width: 95%;
+    max-height: 330px;
+  }
+}
+
 @media (max-width: 480px) {
   .freund-box span {
     font-size: 0.9rem;
@@ -329,7 +339,7 @@ body {
   }
 
   .freunde-liste {
-    max-width: 100%;
+    max-width: 94%;
     max-height: 320px;
   }
 }
