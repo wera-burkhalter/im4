@@ -30,6 +30,8 @@ h2 {
 /* === Event-Karten === */
 .event-list {
   padding: 0 1rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .invite-card {
@@ -44,11 +46,11 @@ h2 {
 
 .invite-card h3 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
 }
 
 .invite-card .meta {
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 2vw, 1rem);
   margin: 0.4rem 0;
   color: #333;
 }
@@ -57,7 +59,7 @@ h2 {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 2vw, 1rem);
   margin-top: 0.3rem;
 }
 
@@ -72,6 +74,7 @@ h2 {
   text-align: right;
   font-weight: bold;
   color: #003366;
+  font-size: clamp(0.85rem, 2vw, 1rem);
 }
 
 /* === Modal für Detailansicht === */
@@ -94,8 +97,8 @@ h2 {
   max-width: 90%;
   width: 400px;
   position: relative;
-  max-height: 90vh; /* nur max. 90% der Fensterhöhe */
-  overflow-y: auto; /* ermöglicht Scrollen innerhalb des Modals */
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .modal .close {
@@ -119,15 +122,11 @@ h2 {
   margin-bottom: 1rem;
 }
 
-.modal-content .organizer {
+.modal-content .avatars-wrapper {
   display: flex;
-  justify-content: flex-end; /* <--- NEU */
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  text-align: right; /* <--- optional, für Namen */
+  justify-content: flex-end;
+  margin-top: 0.5rem;
 }
-
 
 .modal-content .avatars img {
   width: 28px;
@@ -138,11 +137,13 @@ h2 {
   margin-left: -8px;
 }
 
-
-.modal-content .avatars-wrapper {
+.modal-content .organizer {
   display: flex;
   justify-content: flex-end;
-  margin-top: 0.5rem;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  text-align: right;
 }
 
 .modal-content .organizer img {
@@ -151,7 +152,6 @@ h2 {
   border-radius: 50%;
   object-fit: cover;
 }
-
 
 /* === Antwort-Buttons === */
 .response-buttons {
@@ -171,13 +171,12 @@ h2 {
   max-width: 100px;
   border: 4px solid #003366;
   border-radius: 20px;
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 2vw, 1rem);
   font-weight: bold;
   color: white;
   cursor: pointer;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
-
 
 .response-btn .icon {
   font-size: 1.6rem;
@@ -195,7 +194,6 @@ h2 {
 .response-btn.no {
   background-color: #b94f00;
 }
-
 
 /* === Bestätigungsmodale === */
 .confirm-modal .modal-content,
@@ -232,4 +230,26 @@ h2 {
 /* Versteckt */
 .hidden {
   display: none;
+}
+
+/* === Responsive Breakpoints === */
+@media (max-width: 480px) {
+  .response-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .response-btn {
+    max-width: 80%;
+    width: 100%;
+  }
+
+  .invite-card {
+    padding: 0.8rem;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 1rem;
+  }
 }
