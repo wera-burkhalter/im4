@@ -1,3 +1,5 @@
+/* Nur spezifische Styles – globales wie Schrift, Farben → mother.css */
+
 h1 {
   font-size: clamp(28px, 5vw, 40px);
   font-weight: 600;
@@ -7,34 +9,8 @@ h1 {
 
 #welcomeMessage {
   color: #4c7c2b;
-}
-
-.icon-wrapper {
-  display: inline-block;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.icon-wrapper:hover {
-  transform: scale(1.05);
-  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
-}
-
-.homescreenIcons {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 15px;
-  max-width: 160px;
-}
-
-.homescreenIcons:hover {
-  transform: scale(1.05);
-  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
-}
-
-a {
-  text-decoration: none;
+  text-align: center;
+  font-size: 1.2rem;
 }
 
 .icon-grid {
@@ -47,59 +23,26 @@ a {
   margin: 2rem auto;
 }
 
-/* ----------------------------- */
-/* Responsive Breakpoints */
-/* ----------------------------- */
-
-@media (min-width: 1366px) {
-  body {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-bottom: 3rem;
-  }
-
-  .icon-grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 600px;
-  }
-
-  .homescreenIcons {
-    max-width: 180px;
-  }
+.homescreenIcons {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  max-width: 160px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-@media (max-width: 768px) {
-  body {
-    padding: 2rem 1rem 6rem;
-  }
-
-  .homescreenIcons {
-    max-width: 140px;
-  }
+.homescreenIcons:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-@media (max-width: 480px) {
-  .homescreenIcons {
-    max-width: 120px;
-  }
-
-  .icon-grid {
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 375px) {
-  body {
-    padding: 1.5rem 0.5rem 7rem;
-  }
-
-  .homescreenIcons {
-    max-width: 100px;
-  }
+.logout-wrapper {
+  text-align: center;
+  margin-top: 2rem;
 }
 
 .logout-button {
-  margin-top: 2rem;
   background-color: #d38b26;
   color: white;
   border: none;
@@ -114,4 +57,44 @@ a {
 
 .logout-button:hover {
   background-color: #ba741f;
+}
+
+/* Responsive Anpassungen */
+
+@media (min-width: 1366px) {
+  body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+  }
+
+  .icon-grid {
+    max-width: 600px;
+  }
+
+  .homescreenIcons {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .homescreenIcons {
+    max-width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .icon-grid {
+    gap: 1rem;
+  }
+
+  .homescreenIcons {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 375px) {
+  .homescreenIcons {
+    max-width: 100px;
+  }
 }
