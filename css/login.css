@@ -1,15 +1,31 @@
+/* ----------------------------- */
+/* Grundlayout für Login-Seite */
+/* ----------------------------- */
 
-/* Zentriertes Layout */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #fffff9;
+  font-family: 'Poppins', sans-serif;
+}
+
 .container {
+  width: 100%;
   max-width: 400px;
   margin: 0 auto;
   padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
 }
 
+/* ----------------------------- */
 /* Logo */
+/* ----------------------------- */
+
 .logo {
   display: flex;
   flex-direction: column;
@@ -28,7 +44,10 @@
   margin-top: 0.5rem;
 }
 
-/* Formularfelder */
+/* ----------------------------- */
+/* Formular */
+/* ----------------------------- */
+
 form {
   width: 100%;
 }
@@ -52,12 +71,16 @@ form input[type="password"] {
   box-sizing: border-box;
 }
 
+/* ----------------------------- */
 /* Buttons */
+/* ----------------------------- */
+
 .button-row {
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
   align-items: center;
+  width: 100%;
 }
 
 .back-button img {
@@ -81,4 +104,40 @@ form input[type="password"] {
   font-weight: bold;
   cursor: pointer;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ----------------------------- */
+/* Responsive Breakpoints wie create.css */
+/* ----------------------------- */
+
+@media (min-width: 1366px) {
+  .container {
+    max-width: 1200px;
+    padding-bottom: 3rem;
+  }
+
+  .button-row {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1rem 6rem 1rem;
+  }
+
+  .submit-button {
+    padding: 0.7rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .submit-button {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .back-button img {
+    width: 40px;
+  }
 }
