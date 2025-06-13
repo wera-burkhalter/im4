@@ -1,55 +1,49 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Homescreen</title>
-  <link rel="stylesheet" href="css/mother.css" />
-  <link rel="stylesheet" href="css/homescreen.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invyte | Home</title>
+    <link rel="stylesheet" href="css/mother.css">
+    <link rel="stylesheet" href="css/homescreen.css">
+    <link rel="icon" href="assets/Logo_Invyte.png">
 </head>
 <body>
+    
+    <!-- Profilbild -->
+<div class="profil-header">
+  <img id="profilbild" src="assets/standard_avatar.png" alt="Profilbild">
+</div>
 
-  <div class="profil-header">
-    <img id="profilbild" src="assets/standard_avatar.png" alt="Profilbild" class="profilbild" />
-  </div>
+    <h1 id="welcomeMessage"></h1>
 
-  <h1>Willkommen</h1>
-  <p id="welcomeMessage">Hans</p>
+<div class="icon-grid">
+  <a href="events.html" class="icon-wrapper">
+    <img src="assets/Homescreen_Events.png" alt="Events" class="homescreenIcons">
+  </a>
+  <a href="calendar.html" calss="icon-wrapper">
+    <img src="assets/Homescreen_Kalender.png" alt="Kalender" class="homescreenIcons">
+  </a>
+  <a href="invitations.html" class="icon-wrapper">
+    <img src="assets/Homescreen_Offen.png" alt="Offen" class="homescreenIcons">
+  </a>
+  <a href="friends.html" class="icon-wrapper">
+    <img src="assets/Homescreen_Freunde.png" alt="Freunde" class="homescreenIcons">
+  </a>
+</div>
 
-  <div class="icon-grid">
-    <a href="events.html" class="icon-wrapper">
-      <img src="assets/icon-events.png" alt="Events" class="homescreenIcons" />
-    </a>
-    <a href="calendar.html" class="icon-wrapper">
-      <img src="assets/icon-calendar.png" alt="Kalender" class="homescreenIcons" />
-    </a>
-    <a href="invitations.html" class="icon-wrapper">
-      <img src="assets/icon-invitations.png" alt="Einladungen" class="homescreenIcons" />
-    </a>
-    <a href="friends.html" class="icon-wrapper">
-      <img src="assets/icon-friends.png" alt="Freunde" class="homescreenIcons" />
-    </a>
-  </div>
 
-  <div class="logout-wrapper">
-    <button class="logout-button" onclick="logout()">abmelden</button>
-  </div>
 
-  <script>
-    function logout() {
-      fetch("api/logout.php").then(() => {
-        window.location.href = "index.html";
-      });
-    }
-  </script>
+<nav class="footer-menu">
+  <a href="homescreen.html" class="active-icon">
+    <img src="assets/icon-home-blau.png" alt="Home">
+  </a>
+</nav>
 
-  <nav class="footer-menu">
-    <a href="events.html"><img src="assets/icon-events.png" alt="Events" /></a>
-    <a href="calendar.html"><img src="assets/icon-calendar.png" alt="Kalender" /></a>
-    <a href="homescreen.html" class="active-icon"><img src="assets/icon-home.png" alt="Home" /></a>
-    <a href="invitations.html"><img src="assets/icon-invitations.png" alt="Einladungen" /></a>
-    <a href="friends.html"><img src="assets/icon-friends.png" alt="Freunde" /></a>
-  </nav>
+    <script src="js/protected.js" ></script>
+    <script src="js/homescreen.js" ></script>
 
 </body>
+
+
 </html>
