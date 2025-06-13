@@ -102,8 +102,9 @@ content.innerHTML = `
   <div class="meta">${formatDate(data.date)} | ${data.place}</div>
   <div class="time">ab ${data.time} Uhr</div>
   <p>${data.description}</p>
-  <div class="avatars">${guestsHTML}</div>
-  <div class="organizer">
+  <div class="avatars-wrapper">
+    <div class="avatars">${guestsHTML}</div>
+  </div>  <div class="organizer">
     <img src="${data.organizer.profilbild}" alt=""> ${data.organizer.name}
   </div>
   <div class="response-buttons">
@@ -223,8 +224,9 @@ content.innerHTML = `
   <div class="meta">${formatDate(data.date)} | ${data.place}</div>
   <div class="time">ab ${data.time} Uhr</div>
   <p>${data.description}</p>
-  <div class="avatars">${guestsHTML}</div>
-  <div class="organizer">
+  <div class="avatars-wrapper">
+    <div class="avatars">${guestsHTML}</div>
+  </div>  <div class="organizer">
     <img src="${data.organizer.profilbild}" alt=""> ${data.organizer.name}
   </div>
   <div class="response-buttons">

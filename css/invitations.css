@@ -132,8 +132,17 @@ h2 {
   height: 28px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid white;
+  border: 2px solid #fffff9;
+  margin-left: -8px;
 }
+
+
+.modal-content .avatars-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
 
 .modal-content .organizer {
   display: flex;
