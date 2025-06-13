@@ -1,3 +1,15 @@
+/* ----------------------------- */
+/* Grundlayout für Index-Seite */
+/* ----------------------------- */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #fffff9;
+  font-family: 'Poppins', sans-serif;
+}
 
 .container {
   display: flex;
@@ -5,6 +17,11 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100%;
+  max-width: 450px;
+  padding: 2rem 1rem;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -47,4 +64,38 @@
 
 .main-button:hover {
   background-color: #b6761f;
+}
+
+@media (min-width: 1366px) {
+  .container {
+    max-width: 1200px;
+    padding-bottom: 3rem;
+  }
+
+  .button-group {
+    width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1rem 6rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-button {
+    font-size: 0.95rem;
+    padding: 0.65rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .button-group {
+    width: 100%;
+  }
+
+  .main-button {
+    border-radius: 14px;
+  }
 }
