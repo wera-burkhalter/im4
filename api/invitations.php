@@ -12,13 +12,26 @@ if (!isset($_SESSION['user_id'])) {
 $userId = $_SESSION['user_id'];
 
 // Events, zu denen der Benutzer eingeladen wurde und noch nicht zugesagt oder abgesagt hat
-$stmt = $pdo->prepare("SELECT e.id, e.title, e.date, e.place, e.deadline, b.firstName, b.surname, b.profilbild
-                       FROM event_has_benutzer ehb
-                       JOIN events e ON e.id = ehb.event_id
-                       JOIN benutzer b ON e.benutzer_id = b.id
-                       WHERE ehb.benutzer_id = ? AND ehb.status = 'offen'
-                       ORDER BY e.date ASC");
+$stmt = $pdo->prepare("
+    SELECT 
+        e.id, e.title, e.date, e.place, e.deadline, 
+        b.firstName, b.surname, b.profilbild
+    FROM event_has_benutzer ehb
+    JOIN events e ON e.id = ehb.event_id
+    JOIN benutzer b ON e.benutzer_id = b.id
+    WHERE ehb.benutzer_id = ? AND ehb.status = 'offen'
+    ORDER BY e.date ASC
+");
 $stmt->execute([$userId]);
 $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Organizer-Daten in eigenes Objekt strukturieren
+foreach ($events as &$event) {
+    $event['organizer'] = [
+        'name' => $event['firstName'] . ' ' . $event['surname'],
+        'profilbild' => $event['profilbild'] ?: 'assets/standard_avatar.png'
+    ];
+    unset($event['firstName'], $event['surname'], $event['profilbild']);
+}
 
 echo json_encode($events);
