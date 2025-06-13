@@ -94,6 +94,7 @@
 
 .modal-content.default {
 text-align: left;
+padding-top: 1rem;
 }
 .modal-content.centered {
 text-align: center;
