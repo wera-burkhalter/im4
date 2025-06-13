@@ -8,7 +8,7 @@ function formatDate(isoDateString) {
   return `${day}.${month}.${year}`;
 }
 
-// 1. Session prüfen & Profilbild setzen
+// Session prüfen & Profilbild setzen
 fetch("api/protected.php")
   .then(res => res.json())
   .then(data => {
