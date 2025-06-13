@@ -143,7 +143,17 @@ async function openDetailsModal(eventId) {
       </div>
     `;
 
+    // Close-Button (X)
     modal.querySelector(".close").onclick = () => modal.remove();
+
+    // Klick außerhalb schließt Modal
+    window.addEventListener("click", function handler(e) {
+      if (e.target === modal) {
+        modal.remove();
+        window.removeEventListener("click", handler);
+      }
+    });
+
     document.body.appendChild(modal);
 
   } catch (err) {
