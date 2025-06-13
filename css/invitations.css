@@ -145,14 +145,6 @@ h2 {
   margin-top: 0.5rem;
 }
 
-
-.modal-content .organizer {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-
 .modal-content .organizer img {
   width: 32px;
   height: 32px;

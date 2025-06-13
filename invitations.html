@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invyte | Einladungen</title>
-    <link rel="stylesheet" href="css/mother.css">
-    <link rel="stylesheet" href="css/invitations.css">
-    <link rel="icon" href="assets/Logo_Invyte.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invyte | Einladungen</title>
+  <link rel="stylesheet" href="css/mother.css">
+  <link rel="stylesheet" href="css/invitations.css">
+  <link rel="icon" href="assets/Logo_Invyte.png">
 </head>
 <body>
 
-<!-- Profilbild -->
-<div class="profil-header">
-  <img id="profilbild" src="assets/standard_avatar.png" alt="Profilbild">
-</div>
+  <!-- Profilbild -->
+  <div class="profil-header">
+    <img id="profilbild" src="assets/standard_avatar.png" alt="Profilbild">
+  </div>
 
-<!-- Einladungen Titel -->
-<h1 class="page-title">EINLADUNGEN</h1>
+  <!-- Titel -->
+  <h1 class="page-title">EINLADUNGEN</h1>
 
-<!-- Einladungsliste -->
-<div id="invitationList" class="invitation-list"></div>
+  <!-- Einladungsliste -->
+  <div id="invitationList" class="invitation-list"></div>
 
-<!-- Modale: Detail, Bestätigung, Erfolg -->
+  <!-- Modale: Detail, Bestätigung, Erfolg -->
   <div id="detailModal" class="modal hidden">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -29,7 +29,6 @@
     </div>
   </div>
 
-  <!-- Bestätigungs-/Erfolg-Modale -->
   <div id="confirmModal" class="modal hidden">
     <div class="modal-content">
       <p id="confirmText"></p>
@@ -44,18 +43,15 @@
     </div>
   </div>
 
+  <!-- Navigation -->
+  <nav class="footer-menu">
+    <a href="events.html"><img src="assets/icon-events.png" alt="Events"></a>
+    <a href="calendar.html"><img src="assets/icon-calendar.png" alt="Kalender"></a>
+    <a href="homescreen.html"><img src="assets/icon-home.png" alt="Home"></a>
+    <a href="invitations.html" class="active-icon"><img src="assets/icon-inviations-blau.png" alt="Einladungen"></a>
+    <a href="friends.html"><img src="assets/icon-friends.png" alt="Freunde"></a>
+  </nav>
 
-<nav class="footer-menu">
-  <a href="events.html"><img src="assets/icon-events.png" alt="Events"></a>
-  <a href="calendar.html"><img src="assets/icon-calendar.png" alt="Kalender"></a>
-
-  <a href="homescreen.html"><img src="assets/icon-home.png" alt="Home"></a>
-
-  <a href="invitations.html" class="active-icon"><img src="assets/icon-inviations-blau.png" alt="Einladungen"></a>
-  <a href="friends.html"><img src="assets/icon-friends.png" alt="Freunde"></a>
-</nav>
-
-<script src="js/invitations.js" ></script>
-    
+  <script src="js/invitations.js"></script>
 </body>
 </html>
