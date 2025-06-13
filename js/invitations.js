@@ -131,7 +131,7 @@ function handleResponse(eventId, status) {
 
   const messageMap = {
     angenommen: "diesem Event zusagen",
-    abgelehnt: "diesem Event absagen",
+    abgelehnt: "dieses Event absagen",
     vielleicht: "diesem Event evtl. zusagen"
   };
 
