@@ -1,5 +1,5 @@
 /* ----------------------------- */
-/* Grundlayout für Login-Seite */
+/* Zentriertes Layout */
 /* ----------------------------- */
 
 html, body {
@@ -12,13 +12,13 @@ html, body {
 }
 
 .container {
-  width: 100%;
   max-width: 400px;
   margin: 0 auto;
   padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -45,11 +45,12 @@ html, body {
 }
 
 /* ----------------------------- */
-/* Formular */
+/* Formularfelder */
 /* ----------------------------- */
 
 form {
   width: 100%;
+  max-width: 500px;
 }
 
 form label {
@@ -80,6 +81,7 @@ form input[type="password"] {
   justify-content: space-between;
   margin-top: 2rem;
   align-items: center;
+  max-width: 500px;
   width: 100%;
 }
 
@@ -104,16 +106,21 @@ form input[type="password"] {
   font-weight: bold;
   cursor: pointer;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  align-self: flex-end;
 }
 
 /* ----------------------------- */
-/* Responsive Breakpoints wie create.css */
+/* Responsive Anpassungen */
 /* ----------------------------- */
 
 @media (min-width: 1366px) {
   .container {
     max-width: 1200px;
     padding-bottom: 3rem;
+  }
+
+  form {
+    max-width: 500px;
   }
 
   .button-row {
@@ -127,17 +134,24 @@ form input[type="password"] {
   }
 
   .submit-button {
-    padding: 0.7rem 1.2rem;
+    padding: 0.65rem 1.25rem;
+    font-size: 0.95rem;
   }
 }
 
 @media (max-width: 480px) {
   .submit-button {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     padding: 0.6rem 1rem;
   }
 
   .back-button img {
     width: 40px;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding: 1.5rem 0.5rem 7rem 0.5rem;
   }
 }
