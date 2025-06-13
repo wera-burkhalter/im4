@@ -6,65 +6,66 @@
     <link rel="stylesheet" href="css/mother.css">
     <link rel="stylesheet" href="css/create.css">
     <link rel="icon" href="assets/Logo_Invyte.png">
-    <title>Document</title>
+    <title>Event erstellen</title>
 </head>
 
 <body>
+    <div class="container">
+        <form id="eventForm" enctype="multipart/form-data">
+            <h1>Event erstellen</h1>
 
-    <form id="eventForm" enctype="multipart/form-data">
-        <h1>Event erstellen</h1>
-
-        <!--Bild-->
+            <!--Bild-->
             <!-- Klickbares Icon -->
             <label for="imageInput" class="upload-label">
-             <img src="assets/icon-upload-picture.png" alt="Bild hochladen" />
+            <img src="assets/icon-upload-picture.png" alt="Bild hochladen" />
             </label>
             <input type="file" id="imageInput" name="image" accept="image/*"/>
             <img id="previewImage" style="max-width: 100%; display: none; margin-top: 1rem;" />
 
-        <!--Titel-->
-        <label>*Titel</label>
-        <input type="text" name="title" id="title"/>
-        <div class="field-error" id="titleError" style="display: none;"></div>
+            <!--Titel-->
+            <label>*Titel</label>
+            <input type="text" name="title" id="title"/>
+            <div class="field-error" id="titleError" style="display: none;"></div>
 
-        <!--Beschreibung-->
-        <label>*Beschreibung</label>
-        <textarea name="description" id="description"></textarea>
-        <div class="field-error" id="descriptionError" style="display: none;"></div>
+            <!--Beschreibung-->
+            <label>*Beschreibung</label>
+            <textarea name="description" id="description"></textarea>
+            <div class="field-error" id="descriptionError" style="display: none;"></div>
 
-        <!--Datum-->
-        <label>*Datum</label>
-        <input type="date" name="date" id="date"/>
-        <div class="field-error" id="dateError" style="display: none;"></div>
+            <!--Datum-->
+            <label>*Datum</label>
+            <input type="date" name="date" id="date"/>
+            <div class="field-error" id="dateError" style="display: none;"></div>
 
-        <!--Ort-->
-        <label>*Ort</label>
-        <input type="text" name="place" id="place"/>
-        <div class="field-error" id="placeError" style="display: none;"></div>
+            <!--Ort-->
+            <label>*Ort</label>
+            <input type="text" name="place" id="place"/>
+            <div class="field-error" id="placeError" style="display: none;"></div>
 
-        <!--Uhrzeit-->
-        <label>Uhrzeit</label>
-        <input type="text" name="time" placeholder="zB. ab 14:30 Uhr">
+            <!--Uhrzeit-->
+            <label>Uhrzeit</label>
+            <input type="text" name="time" placeholder="zB. ab 14:30 Uhr">
 
-        <!--Rückmeldefrist-->
-        <label>*Rückmeldefrist</label>
-        <input type="date" name="deadline" id="deadline"/>
-        <div class="field-error" id="deadlineError" style="display: none;"></div>
+            <!--Rückmeldefrist-->
+            <label>*Rückmeldefrist</label>
+            <input type="date" name="deadline" id="deadline"/>
+            <div class="field-error" id="deadlineError" style="display: none;"></div>
 
-        <!--Friends-->
-        <label>*Freunde einladen</label>
-        <div class="friend-select">
-            <div id="selectedFriends" class="selected-friends"></div>
-            <input type="text" id="friendSearch" placeholder="Freunde suchen..." autocomplete="off">
-            <div id="friendError" class="field-error" style="display: none;"></div>
-            <div id="friendResults" class="friend-results"></div>
-        </div>
+            <!--Friends-->
+            <label>*Freunde einladen</label>
+            <div class="friend-select">
+                <div id="selectedFriends" class="selected-friends"></div>
+                <input type="text" id="friendSearch" placeholder="Freunde suchen..." autocomplete="off">
+                <div id="friendError" class="field-error" style="display: none;"></div>
+                <div id="friendResults" class="friend-results"></div>
+            </div>
 
-        <button type="submit">Speichern</button>
-        <div id="successPopup" class="success-popup" style="display: none;">
-            Dein Event wurde erfolgreich erstellt!
-        </div>
-    </form>
+            <button type="submit">Speichern</button>
+            <div id="successPopup" class="success-popup" style="display: none;">
+                Dein Event wurde erfolgreich erstellt!
+            </div>
+        </form>
+    </div>
     
     <script src="js/create.js"></script>
 </body>
