@@ -64,6 +64,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  box-sizing: border-box;
 }
 
 .freund-box {
@@ -315,10 +316,11 @@ body {
 @media (max-width: 515px) {
   .container {
     padding-bottom: 7rem;
+    max-width: 95%;
   }
 
   .freunde-liste {
-    max-width: 95%;
+    max-width: 100%;
     max-height: 330px;
   }
 }
@@ -339,7 +341,17 @@ body {
   }
 
   .freunde-liste {
-    max-width: 94%;
+    max-width: 100%;
     max-height: 320px;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding: 1rem 0.5rem 7rem 0.5rem;
+  }
+
+  .freunde-liste {
+    padding: 0.5rem;
   }
 }
