@@ -24,7 +24,7 @@ body {
   width: 100%;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1366px) {
   html, body {
     overflow: hidden;
   }
@@ -285,16 +285,36 @@ body {
   max-width: 90%;
 }
 
-@media (max-width: 899px) {
-  html, body {
-    overflow-y: auto;
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .freunde-liste {
+    max-width: 90%;
+    height: auto;
   }
+}
 
+@media (max-width: 768px) {
   .freunde-liste {
     max-width: 95%;
   }
 
   .container {
-    padding: 1.5rem 1rem 4rem 1rem;
+    padding: 1.5rem 1rem 5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .freund-box span {
+    font-size: 0.9rem;
+  }
+
+  .entfernen-button {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .hinzufuegen-button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
   }
 }
