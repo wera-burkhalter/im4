@@ -18,6 +18,8 @@ Maria Toni: 079 040 90 02 - ElTonyMate
 
 *** LEARNINGS
 - Das genaue aufzeichnen unserer Screens und Datenbanken zu beginn hat uns wirklich einiges an Arbeit gespart und sich definitiv gelohnt!
+- ChatGPT kann nicht immer vollkommen vertraut werden: auch die KI macht Fehler und daher ist aktives Mitdenken ein Muss. 
+
 
 *** SCHWIERIGKEITEN
 
