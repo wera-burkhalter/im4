@@ -1,8 +1,10 @@
+/* ==== Register Layout & Responsiveness (Vereinfacht & Optimiert) ==== */
+
 .container {
   background-color: #fffff9;
-  max-width: 400px;
+  max-width: 500px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: clamp(1rem, 5vw, 2rem) 1rem;
   width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -18,7 +20,7 @@
 }
 
 .logo img {
-  height: 48px;
+  height: clamp(36px, 6vw, 48px);
 }
 
 .logo h1 {
@@ -93,7 +95,7 @@ form input[type="password"] {
 }
 
 .back-button img {
-  width: 40px;
+  width: clamp(32px, 8vw, 40px);
 }
 
 .submit-button {
@@ -101,54 +103,17 @@ form input[type="password"] {
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   border-radius: 12px;
   font-weight: bold;
   cursor: pointer;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   align-self: flex-end;
+  transition: background-color 0.3s ease;
 }
 
-@media (min-width: 1366px) {
-  .container {
-    max-width: 1200px;
-    padding-bottom: 3rem;
-  }
-
-  form {
-    max-width: 500px;
-  }
-
-  .button-row {
-    max-width: 500px;
-  }
+.submit-button:hover {
+  background-color: #ba741f;
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 2rem 1rem 6rem 1rem;
-  }
-
-  .submit-button {
-    padding: 0.65rem 1.25rem;
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .submit-button {
-    font-size: 0.9rem;
-    padding: 0.6rem 1rem;
-  }
-
-  .back-button img {
-    width: 36px;
-  }
-}
-
-@media (max-width: 375px) {
-  .container {
-    padding: 1.5rem 0.5rem 7rem 0.5rem;
-  }
-}
   
