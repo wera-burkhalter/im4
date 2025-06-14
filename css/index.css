@@ -1,3 +1,5 @@
+/* ==== Index Layout & Responsiveness (Vereinfacht & Optimiert) ==== */
+
 .container {
   display: flex;
   flex-direction: column;
@@ -5,8 +7,8 @@
   justify-content: center;
   height: 100vh;
   width: 100%;
-  max-width: 450px;
-  padding: 2rem 1rem;
+  max-width: 500px;
+  padding: clamp(2rem, 5vw, 4rem) 1rem;
   margin: 0 auto;
   box-sizing: border-box;
 }
@@ -19,7 +21,7 @@
 }
 
 .logo img {
-  width: 150px;
+  width: clamp(120px, 20vw, 150px);
   height: auto;
 }
 
@@ -33,7 +35,8 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  width: 200px;
+  width: 100%;
+  max-width: 280px;
 }
 
 .main-button {
@@ -41,7 +44,7 @@
   background-color: #d38b26;
   color: white;
   padding: 0.75rem;
-  font-size: 1rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   font-weight: bold;
   border-radius: 16px;
   text-decoration: none;
@@ -51,44 +54,4 @@
 
 .main-button:hover {
   background-color: #b6761f;
-}
-
-
-@media (min-width: 1366px) {
-  .container {
-    max-width: 1200px;
-    padding-bottom: 3rem;
-  }
-
-  .button-group {
-    width: 280px;
-  }
-
-  .main-button {
-    font-size: 1.2rem;
-    padding: 1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 2rem 1rem 6rem 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .main-button {
-    font-size: 0.95rem;
-    padding: 0.65rem;
-  }
-}
-
-@media (max-width: 375px) {
-  .button-group {
-    width: 100%;
-  }
-
-  .main-button {
-    border-radius: 14px;
-  }
 }
