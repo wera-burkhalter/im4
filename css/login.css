@@ -23,7 +23,7 @@
 
 .logo h1 {
   font-size: 1.5rem;
-  color: #002147;
+  color: #003366;
   margin-top: 0.5rem;
 }
 
@@ -37,14 +37,14 @@ form label {
   margin-top: 1rem;
   margin-bottom: 0.3rem;
   font-weight: 500;
-  color: #000;
+  color: #003366;
 }
 
 form input[type="tel"],
 form input[type="password"] {
   width: 100%;
   padding: 0.75rem;
-  border: 3px solid #002147;
+  border: 3px solid #003366;
   border-radius: 12px;
   font-size: 1rem;
   outline: none;
